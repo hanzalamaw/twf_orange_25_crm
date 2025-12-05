@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery Management</title>
+    <link rel="stylesheet" href="AFruitNewOrder.css?v=<?= filemtime('AFruitNewOrder.css') ?>">
+    <link rel="icon" href="imgs/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+</head>
+<body>
+    <nav class="sidebar">
+        <button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+        <ul>
+            <li><a href="index.php" class="hovere">Dashboard <span>›</span></a></li>
+            <li class="active"><a href="AFruitNewOrder.html">Add New Order (Fruits)<span>›</span></a></li>
+            <li><a href="AManageFruits.html" class="hovere">Orders Management (Fruits)<span>›</span></a></li>
+            <li><a href="AFruitTransactions.html" class="hovere">Transactions <span>›</span></a></li>
+            <li><a href="Expenses.html" class="hovere">Expenses <span>›</span></a></li>
+            <li><a href="AFruitStats.html" class="hovere">Weekly Stats <span>›</span></a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <div class="nav-left">
+            <button class="hamburger"><i class="fa-solid fa-bars"></i></button> 
+            <h2>ADD NEW ORDER (FRUITS)</h2>
+        </div>
+        
+        <div class="logo">
+            <img src="imgs/logo.png" alt="">
+        </div>
+    </header>
+
+    <section class="newOrder">
+        <form id="orderForm">
+            <div class="input-section">
+                <label for="customer_id">Customer ID:</label>
+                <input type="text" id="customer_id" name="customer_id" placeholder="Enter Phone Number To Generate" autocomplete="off" readonly required>
+            </div>
+            
+            <div class="input-section">
+                <label for="order_id">Order ID:</label>
+                <input type="text" id="order_id" name="order_id" placeholder="Order ID" autocomplete="off" readonly required>
+            </div>
+              
+            <div class="input-section">
+                <label for="booking_date">Booking Date:</label>
+                <input type="text" id="booking_date" name="booking_date" placeholder="YYYY-MM-DD" autocomplete="off" required>
+            </div>
+
+            <div class="input-section">
+                <label for="week">Week:</label>
+                <input type="text" id="week" name="week" placeholder="YYYY-MM-DD" autocomplete="off" required value="WEEK 1">
+            </div>
+            
+            <div class="input-section">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Name" autocomplete="off" required>
+            </div>
+            
+            <div class="input-section">
+                <label for="contact">Contact No:</label>
+                <input type="text" id="contact" name="contact" placeholder="03XX-XXXXXXX"  autocomplete="off" required>
+            </div>
+            
+            <div class="input-section">
+                <label for="alt_contact">Alternate Contact No:</label>
+                <input type="text" id="alt_contact" name="alt_contact" placeholder="Alternate Contact No"  autocomplete="off" required value="N/A">
+            </div>
+            
+            <div class="input-section">
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" placeholder="Address"  autocomplete="off" required>
+            </div>
+            
+            <div class="input-section">
+                <label for="area">Area:</label>
+                <input type="text" id="area" name="area" placeholder="Area" autocomplete="off" required>
+            </div>
+            
+            <div class="input-section">
+                <label for="quantity">Quantity:</label>
+                <select id="quantity" name="quantity">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+            </div>
+            
+            <div class="input-section">
+                <label for="order_type">Order Type:</label>
+                <select id="order_type" name="order_type">
+                    <option value="" disabled selected>Select</option>
+                    <option value="Orange - Kinnow">Orange - Kinnow</option>
+                    <option value="Orange - Mausambi">Orange - Mausambi</option>
+                    <option value="Orange - Mausami">Orange - Mausami</option>
+                    <option value="Orange - Red Blood">Orange - Red Blood</option>
+                </select>
+            </div>
+
+            <div class="input-section">
+                <label for="weight">Weight:</label>
+                <select id="weight" name="weight" required>
+                    <option value="" disabled selected>Select</option>
+                    <option value="5KG - Premium">5KG - Premium</option>
+                    <option value="10KG - Premium">10KG - Premium</option> 
+                    <option value="5KG - Wooden Box">5KG - Wooden Box</option>
+                    <option value="10KG - Wooden Box">10KG - Wooden Box</option> 
+                </select>
+            </div>
+            
+            <div class="input-section">
+                <label for="total_amount">Total Amount:</label>
+                <input type="number" id="total_amount" name="total_amount" placeholder="Total Amount"  autocomplete="off" required>
+            </div>
+            
+            <div class="input-section">
+                <label for="bank">Bank:</label>
+                <input type="number" id="bank" name="bank" placeholder="Bank"  autocomplete="off" required>
+            </div>
+            
+            <div class="input-section">
+                <label for="cash">Cash:</label>
+                <input type="number" id="cash" name="cash" placeholder="Cash"  autocomplete="off" required>
+            </div>
+            
+            <div class="input-section">
+                <label for="received_amount">Received Amount:</label>
+                <input type="number" id="received_amount" name="received_amount" placeholder="Received Amount" autocomplete="off" required readonly>
+            </div>
+            
+            <div class="input-section">
+                <label for="pending_amount">Pending Amount:</label>
+                <input type="number" id="pending_amount" name="pending_amount" placeholder="Pending Amount" autocomplete="off" required readonly>
+            </div>
+            
+            <div class="input-section">
+                <label for="source">Order Source:</label>
+                <select id="source" name="source">
+                    <option value="" disabled selected>Select</option>
+                    <option value="Whatsapp (Social Media Ads)">Whatsapp (Social Media Ads)</option>
+                    <option value="Whatsapp (New PR)">Whatsapp (New PR)</option>
+                    <option value="Whatsapp (Old PR)">Whatsapp (Old PR)</option>
+                    <option value="Social Media Engagement">Social Media Engagement</option>
+                    <option value="Calling (Previous Customer)">Calling (Previous Customer)</option>
+                    <option value="Calling (New Data)">Calling (New Data)</option>
+                    <option value="Ambassador Program">Ambassador Program</option>
+                    <option value="Website">Website</option>
+                    <option value="Corporate">Corporate</option>
+                </select>
+            </div>
+            
+            <div class="input-section">
+                <label for="deliveryStatus">Delivery Status:</label>
+                <input type="text" id="deliveryStatus" name="deliveryStatus" placeholder="Delivery Status" autocomplete="off" value="At Our Farm" readonly>
+            </div>
+
+            <div class="input-section">
+                <label for="description">Description:</label>
+                <input type="text" id="description" name="description" placeholder="Description" autocomplete="off">
+            </div>
+
+            <div class="checkbox-section">
+                <input type="checkbox" id="keepInfo">
+                <label for="keepInfo">Don't Clear Information After Submitting</label>
+            </div>
+            
+            <div id="submit">
+                <button type="submit" style="cursor: pointer;">Add Order</button>
+            </div>
+        </form>
+    </section>
+
+    <script src="AFruitNewOrder.js?v=<?= filemtime('AFruitNewOrder.js') ?>"></script>
+</body>
+</html>

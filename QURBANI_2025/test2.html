@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <div id="chart"></div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  
+</body>
+</html>
+
+<script>
+fetch('fetch_orders.php')
+  .then(response => response.json())
+  .then(data => {
+    // Step 1: Group orders by date
+    const salesByDate = {};
+
+    data.forEach(order => {
+      const date = order.booking_date; // or whatever the field name is in your DB
+      if (salesByDate[date]) {
+        salesByDate[date] += 1; // Increment count
+      } else {
+        salesByDate[date] = 1; // Start counting
+      }
+    });
+
+    // Step 2: Prepare arrays for chart
+    const dates = Object.keys(salesByDate).sort(); // Sort by date
+    const sales = dates.map(date => salesByDate[date]);
+
+    // Step 3: Build the chart
+    var options = {
+      chart: {
+        type: 'line',
+        height: 400
+      },
+      series: [{
+        name: 'Sales',
+        data: sales
+      }],
+      xaxis: {
+        categories: dates
+      },
+      stroke: {
+        curve: 'smooth'
+      }
+    };
+
+    var chart = new ApexCharts(document.querySelector("#chart"), options);
+    chart.render();
+  })
+  .catch(error => console.error('Error fetching orders:', error));
+</script>

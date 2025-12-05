@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery Management</title>
+    <link rel="stylesheet" href="newOrderFruits.css?v=<?= filemtime('newOrderFruits.css') ?>">
+    <link rel="icon" href="imgs/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+</head>
+<body>
+    <nav class="sidebar">
+        <button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+        <ul>
+            <li><a href="index.php" class="hovere">Dashboard <span>›</span></a></li>
+            <li><a href="New_Order.html" class="hovere">Add New Order <span>›</span></a></li>
+            <li><a href="Order_Management.html" class="hovere">Orders Management <span>›</span></a></li>
+            <li class="active"><a href="newOrderFruits.html">Add New Order (Fruits)<span>›</span></a></li>
+            <li><a href="Order_Manage_Fruits.html" class="hovere">Orders Management (Fruits)<span>›</span></a></li>
+            <li><a href="transactions.html" class="hovere">Transactions <span>›</span></a></li>
+            <li><a href="Expenses.html" class="hovere">Expenses <span>›</span></a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <div class="nav-left">
+            <button class="hamburger"><i class="fa-solid fa-bars"></i></button> 
+            <h2>ADD NEW ORDER (FRUITS)</h2>
+        </div>
+        
+        <div class="logo">
+            <img src="imgs/logo.png" alt="">
+        </div>
+    </header>
+
+    <section class="newOrder">
+        <form id="orderForm">
+            <div class="input-section">
+                <label for="customer_id">Customer ID:</label>
+                <input type="text" id="customer_id" name="customer_id" placeholder="Enter Phone Number To Generate" autocomplete="off" readonly required>
+            </div>
+            
+            <div class="input-section">
+                <label for="order_id">Order ID:</label>
+                <input type="text" id="order_id" name="order_id" placeholder="Order ID" autocomplete="off" readonly required>
+            </div>
+              
+            <div class="input-section" style="display: none;">
+                <label for="cow_number">Cow Number:</label>
+                <input type="text" id="cow_number" name="cow_number" placeholder="Cow Number" value="-" autocomplete="off">
+            </div>
+            
+            <div class="input-section" style="display: none;">
+                <label for="hissa_number">Hissa Number:</label>
+                <input type="text" id="hissa_number" name="hissa_number" placeholder="Hissa Number" value="-" autocomplete="off">
+            </div>
+            
+            <div class="input-section">
+                <label for="booking_name">Booking Name:</label>
+                <input type="text" id="booking_name" name="booking_name" placeholder="Booking Name" autocomplete="off" required>
+            </div>
+            
+            <div class="input-section">
+                <label for="contact_no">Contact No:</label>
+                <input type="text" id="contact_no" name="contact_no" placeholder="03XX-XXXXXXX"  autocomplete="off" required>
+            </div>
+            
+            <div class="input-section">
+                <label for="alternate_contact_no">Alternate Contact No:</label>
+                <input type="text" id="alternate_contact_no" name="alternate_contact_no" placeholder="Alternate Contact No"  autocomplete="off" required>
+            </div>
+            
+            <div class="input-section">
+                <label for="shareholder_address">Address:</label>
+                <input type="text" id="shareholder_address" name="shareholder_address" placeholder="Shareholder Address"  autocomplete="off" required>
+            </div>
+            
+            <div class="input-section">
+                <label for="area">Area:</label>
+                <input type="text" id="area" name="area" placeholder="Area" autocomplete="off" required>
+            </div>
+            
+            <div class="input-section">
+                <label for="day">Quantity:</label>
+                <select id="day" name="day">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+            </div>
+            
+            <div class="input-section">
+                <label for="order_type">Order Type:</label>
+                <select id="order_type" name="order_type">
+                    <option value="" disabled selected>Select</option>
+                    <option value="Mango - Chaunsa">Mango - Chaunsa</option>
+                    <option value="Mango - Sindhri">Mango - Sindhri</option>
+                    <option value="Mango - Anwar Ratol">Mango - Anwar Ratol</option>
+                </select>
+            </div>
+
+            <div class="input-section">
+                <label for="shareholder_name">Weight:</label>
+                <select id="shareholder_name" name="shareholder_name" required>
+                    <option value="" disabled selected>Select</option>
+                    <option value="5KG - Premium">5KG - Premium</option>
+                    <option value="10KG - Premium">10KG - Premium</option> 
+                    <option value="5KG - Wooden Box">5KG - Wooden Box</option>
+                    <option value="10KG - Wooden Box">10KG - Wooden Box</option> 
+                </select>
+            </div>
+            
+            <div class="input-section">
+                <label for="booking_date">Booking Date:</label>
+                <input type="text" id="booking_date" name="booking_date" placeholder="YYYY-MM-DD" autocomplete="off" required>
+            </div>
+            
+            <div class="input-section">
+                <label for="total_amount">Total Amount:</label>
+                <input type="number" id="total_amount" name="total_amount" placeholder="Total Amount"  autocomplete="off" required>
+            </div>
+            
+            <div class="input-section">
+                <label for="bank">Bank:</label>
+                <input type="number" id="bank" name="bank" placeholder="Bank"  autocomplete="off" required>
+            </div>
+            
+            <div class="input-section">
+                <label for="cash">Cash:</label>
+                <input type="number" id="cash" name="cash" placeholder="Cash"  autocomplete="off" required>
+            </div>
+            
+            <div class="input-section">
+                <label for="received_amount">Received Amount:</label>
+                <input type="number" id="received_amount" name="received_amount" placeholder="Received Amount" autocomplete="off" required readonly>
+            </div>
+            
+            <div class="input-section">
+                <label for="pending_amount">Pending Amount:</label>
+                <input type="number" id="pending_amount" name="pending_amount" placeholder="Pending Amount" autocomplete="off" required>
+            </div>
+            
+            <div class="input-section">
+                <label for="order_source">Order Source:</label>
+                <select id="order_source" name="order_source">
+                    <option value="" disabled selected>Select</option>
+                    <option value="Whatsapp (Socail Media Ads)">Whatsapp (Socail Media Ads)</option>
+                    <option value="Whatsapp (New PR)">Whatsapp (New PR)</option>
+                    <option value="Whatsapp (Old PR)">Whatsapp (Old PR)</option>
+                    <option value="Social Media Engagement">Social Media Engagement</option>
+                    <option value="Calling (Corporate)">Calling (Corporate)</option>
+                    <option value="Calling (Previus Customer)">Calling (Previus Customer)</option>
+                    <option value="Calling (New Data)">Calling (New Data)</option>
+                    <option value="Ambassador Program">Ambassador Program</option>
+                    <option value="Website">Website</option>
+                    <option value="Corporate">Corporate</option>
+                </select>
+            </div>
+            
+            <div class="input-section">
+                <label for="refrence">Reference:</label>
+                <select id="refrence" name="refrence">
+                    <option value="" disabled selected>Select</option>
+                    <option value="Ashhad Bhai">Ashhad Bhai</option>
+                    <option value="Ammar Bhai">Ammar Bhai</option>
+                    <option value="Huzaifa">Huzaifa</option>
+                    <option value="Ashhal">Ashhal</option>
+                    <option value="Abuzar">Abuzar</option>
+                    <option value="Fayez">Fayez</option>
+                    <option value="Omer">Omer</option>
+                    <option value="Arsalan">Arsalan</option>
+                    <option value="Hanzala">Hanzala</option>
+                    <option value="Rohan">Rohan</option>
+                    <option value="Abdullah Rizwan (External)">Abdullah Rizwan (External)</option>
+                    <option value="Amin ul Qadir (External)">Amin ul Qadir (External)</option>
+                    <option value="Zohaib Mughal (External)">Zohaib Mughal (External)</option>
+                    <option value="Saad Ifthikhar (External)">Saad Ifthikhar (External)</option>
+                    <option value="Fahad Bhai (External)">Fahad Bhai (External)</option>
+                    <option value="Ahmed Raza (External)">Ahmed Raza (External)</option>
+                    <option value="Saqib Mustafa (External)">Saqib Mustafa (External)</option>
+                    <option value="Riaz Zaheer (External)">Riaz Zaheer (External)</option>
+                    <option value="Corporate">Corporate</option>
+                    <option value="PR & Ambassasdor">PR & Ambassasdor</option>
+                </select>
+            </div>
+
+            <div class="input-section">
+                <label for="description">Description:</label>
+                <input type="text" id="description" name="description" placeholder="Description" autocomplete="off">
+            </div>
+
+            <div class="input-section">
+            </div>
+
+            <div class="checkbox-section">
+                <input type="checkbox" id="keepInfo">
+                <label for="keepInfo">Don't Clear Information After Submitting</label>
+            </div>
+            
+            <div id="submit">
+                <button type="submit" style="cursor: pointer;">Add Order</button>
+            </div>
+        </form>
+    </section>
+
+    <script src="newOrderFruits.js?v=<?= filemtime('newOrderFruits.js') ?>"></script>
+</body>
+</html>

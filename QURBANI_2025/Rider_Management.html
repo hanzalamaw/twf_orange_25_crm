@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rider Management</title>
+    <link rel="stylesheet" href="Rider_Management.css?v=<?= filemtime('Rider_Management.css') ?>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+</head>
+<body>
+    <nav class="sidebar">
+        <button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+        <ul>
+            <li><a href="index.php" class="hovere">Dashboard <span>›</span></a></li>
+            <li><a href="New_Order.html" class="hovere">Add New Order <span>›</span></a></li>
+            <li><a href="Order_Management.html" class="hovere">Orders Management <span>›</span></a></li>
+            <li><a href="newOrderFruits.html" class="hovere">Add New Order (Fruits)<span>›</span></a></li>
+            <li><a href="Order_Manage_Fruits.html" class="hovere">Orders Management (Fruits)<span>›</span></a></li>
+            <li><a href="transactions.html" class="hovere">Transactions <span>›</span></a></li>
+            <li class="active"><a href="Rider_Management.html">Rider Management <span>›</span></a></li>
+        </ul>
+    </nav>
+
+    <div class="header-row">
+        <div class="nav-left">
+            <button class="hamburger"><i class="fa-solid fa-bars"></i></button>
+            <h2>RIDER MANAGEMENT</h2>
+        </div>
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" id="searchBooking" oninput="filterTransactions()" placeholder="Search by Name">
+            </div>
+            <select id="filterStatus" class="filter-select" onchange="filterTransactions()">
+                <option value="">All</option>
+                <option value="Off Duty">Off Duty</option>
+                <option value="Available">Available</option>
+                <option value="Out For Delivery">Out For Delivery</option>
+            </select>
+            <button onclick="exportToCSV()" class="export-btn">Export CSV</button>
+        </div>
+    </div>
+
+    <section class="newExpense">
+        <form id="addExpense">
+            <div class="top">
+                <div class="input-section">
+                    <input type="text" id="name" name="name" placeholder="Rider's Name" autocomplete="off" required>
+                </div>
+    
+                <div class="input-section">
+                    <input type="text" id="phone" name="phone" placeholder="Contact No" autocomplete="off" required>
+                </div>
+    
+                <div class="input-section">
+                    <input type="text" id="cnic" name="cnic" placeholder="Rider's CNIC" autocomplete="off" required value="-">
+                </div>
+
+                <div class="input-section">
+                    <select id="vehicle" name="vehicle">
+                        <option value="" disabled selected>Select Vehicle</option>
+                        <option value="Bike">Bike</option>
+                        <option value="Suzuki">Suzuki</option>
+                        <option value="Bolan">Bolan</option>
+                        <option value="Car">Car</option>
+                        <option value="Rickshaw">Rickshaw</option>
+                    </select>
+                </div>
+
+                <div class="input-section">
+                    <input type="text" id="number_plate" name="number_plate" placeholder="Number Plate" autocomplete="off" required value="-">
+                </div>
+
+                <div class="input-section">
+                    <input type="text" id="availability" name="availability" placeholder="Availability" autocomplete="off" required value="-">
+                </div>
+    
+                <div class="input-section">
+                    <input type="text" id="tag" name="tag" placeholder="Tag" autocomplete="off" required value="Off Duty" readonly>
+                </div>
+            </div>
+
+            <div id="submit">
+                <button type="submit" style="cursor: pointer;">Add New Rider</button>
+            </div>
+        </form>
+    </section>
+
+    <div class="table-wrapper">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>S.NO</th>
+                    <th>Name</th>
+                    <th>Contact</th>
+                    <th>CNIC</th>
+                    <th>Delivery Vehicle</th>
+                    <th>Number Plate</th>
+                    <th>Availability</th>
+                    <th>Tag</th>
+                </tr>
+            </thead>
+            <tbody id="ordersContainer"></tbody>
+        </table>
+    </div>
+
+    <script src="Rider_Management.js?v=<?= filemtime('Rider_Management.js') ?>"></script>
+</body>
+</html>

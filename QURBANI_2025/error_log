@@ -1,0 +1,352 @@
+[14-Jun-2025 13:26:19 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:19 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:19 UTC] PHP Warning:  include(): Failed opening 'db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:19 UTC] PHP Notice:  Undefined variable: conn in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:19 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:19 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetchQurbaniOrders.php on line 2
+[14-Jun-2025 13:26:19 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetchQurbaniOrders.php on line 2
+[14-Jun-2025 13:26:19 UTC] PHP Warning:  include(): Failed opening 'db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetchQurbaniOrders.php on line 2
+[14-Jun-2025 13:26:19 UTC] PHP Notice:  Undefined variable: conn in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetchQurbaniOrders.php on line 8
+[14-Jun-2025 13:26:19 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetchQurbaniOrders.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetchQurbaniOrders.php on line 8
+[14-Jun-2025 13:26:19 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:19 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:19 UTC] PHP Warning:  include(): Failed opening 'db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:19 UTC] PHP Notice:  Undefined variable: conn in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:19 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:19 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:19 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:19 UTC] PHP Warning:  include(): Failed opening 'db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:19 UTC] PHP Notice:  Undefined variable: conn in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:19 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:19 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:19 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:19 UTC] PHP Warning:  include(): Failed opening 'db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:19 UTC] PHP Notice:  Undefined variable: conn in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:19 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:20 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:20 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:20 UTC] PHP Warning:  include(): Failed opening 'db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:20 UTC] PHP Notice:  Undefined variable: conn in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:20 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:20 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:20 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:20 UTC] PHP Warning:  include(): Failed opening 'db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:20 UTC] PHP Notice:  Undefined variable: conn in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:20 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:20 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:20 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:20 UTC] PHP Warning:  include(): Failed opening 'db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:20 UTC] PHP Notice:  Undefined variable: conn in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:20 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:21 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:21 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:21 UTC] PHP Warning:  include(): Failed opening 'db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:21 UTC] PHP Notice:  Undefined variable: conn in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:21 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:21 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:21 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:21 UTC] PHP Warning:  include(): Failed opening 'db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:21 UTC] PHP Notice:  Undefined variable: conn in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:21 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:21 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:21 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:21 UTC] PHP Warning:  include(): Failed opening 'db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:21 UTC] PHP Notice:  Undefined variable: conn in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:21 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:21 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:21 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:21 UTC] PHP Warning:  include(): Failed opening 'db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:21 UTC] PHP Notice:  Undefined variable: conn in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:21 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:22 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:22 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:22 UTC] PHP Warning:  include(): Failed opening 'db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:22 UTC] PHP Notice:  Undefined variable: conn in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:22 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:22 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:22 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:22 UTC] PHP Warning:  include(): Failed opening 'db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:22 UTC] PHP Notice:  Undefined variable: conn in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:22 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:22 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:22 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:22 UTC] PHP Warning:  include(): Failed opening 'db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:22 UTC] PHP Notice:  Undefined variable: conn in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:22 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:23 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:23 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:23 UTC] PHP Warning:  include(): Failed opening 'db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:23 UTC] PHP Notice:  Undefined variable: conn in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:23 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:23 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:23 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:23 UTC] PHP Warning:  include(): Failed opening 'db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:23 UTC] PHP Notice:  Undefined variable: conn in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:23 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:23 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:23 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:23 UTC] PHP Warning:  include(): Failed opening 'db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:23 UTC] PHP Notice:  Undefined variable: conn in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:23 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:24 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:24 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:24 UTC] PHP Warning:  include(): Failed opening 'db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:24 UTC] PHP Notice:  Undefined variable: conn in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:24 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:24 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:24 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:24 UTC] PHP Warning:  include(): Failed opening 'db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:24 UTC] PHP Notice:  Undefined variable: conn in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:24 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:24 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:24 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:24 UTC] PHP Warning:  include(): Failed opening 'db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:24 UTC] PHP Notice:  Undefined variable: conn in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:24 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:24 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:24 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:24 UTC] PHP Warning:  include(): Failed opening 'db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:24 UTC] PHP Notice:  Undefined variable: conn in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:24 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:25 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:25 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:25 UTC] PHP Warning:  include(): Failed opening 'db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:25 UTC] PHP Notice:  Undefined variable: conn in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:25 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:25 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:25 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:25 UTC] PHP Warning:  include(): Failed opening 'db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:25 UTC] PHP Notice:  Undefined variable: conn in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:25 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:25 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:25 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:25 UTC] PHP Warning:  include(): Failed opening 'db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:25 UTC] PHP Notice:  Undefined variable: conn in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:25 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:26 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:26 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:26 UTC] PHP Warning:  include(): Failed opening 'db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:26 UTC] PHP Notice:  Undefined variable: conn in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:26 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:26 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:26 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:26 UTC] PHP Warning:  include(): Failed opening 'db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:26 UTC] PHP Notice:  Undefined variable: conn in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:26 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:26 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:26 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:26 UTC] PHP Warning:  include(): Failed opening 'db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:26 UTC] PHP Notice:  Undefined variable: conn in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:26 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:27 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:27 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:27 UTC] PHP Warning:  include(): Failed opening 'db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:27 UTC] PHP Notice:  Undefined variable: conn in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:27 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:27 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:27 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:27 UTC] PHP Warning:  include(): Failed opening 'db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:27 UTC] PHP Notice:  Undefined variable: conn in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:27 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:27 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:27 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:27 UTC] PHP Warning:  include(): Failed opening 'db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:27 UTC] PHP Notice:  Undefined variable: conn in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:27 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:27 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:27 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:27 UTC] PHP Warning:  include(): Failed opening 'db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:27 UTC] PHP Notice:  Undefined variable: conn in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:27 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:28 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:28 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:28 UTC] PHP Warning:  include(): Failed opening 'db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:28 UTC] PHP Notice:  Undefined variable: conn in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:28 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:28 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:28 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:28 UTC] PHP Warning:  include(): Failed opening 'db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:28 UTC] PHP Notice:  Undefined variable: conn in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:28 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:28 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:28 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:28 UTC] PHP Warning:  include(): Failed opening 'db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:28 UTC] PHP Notice:  Undefined variable: conn in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:28 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:29 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:29 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:29 UTC] PHP Warning:  include(): Failed opening 'db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 2
+[14-Jun-2025 13:26:29 UTC] PHP Notice:  Undefined variable: conn in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:29 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_orders.php on line 5
+[14-Jun-2025 13:26:33 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetchQurbaniOrders.php on line 2
+[14-Jun-2025 13:26:33 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetchQurbaniOrders.php on line 2
+[14-Jun-2025 13:26:33 UTC] PHP Warning:  include(): Failed opening 'db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetchQurbaniOrders.php on line 2
+[14-Jun-2025 13:26:33 UTC] PHP Notice:  Undefined variable: conn in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetchQurbaniOrders.php on line 8
+[14-Jun-2025 13:26:33 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetchQurbaniOrders.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetchQurbaniOrders.php on line 8
+[14-Jun-2025 13:26:34 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetchQurbaniOrders.php on line 2
+[14-Jun-2025 13:26:34 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetchQurbaniOrders.php on line 2
+[14-Jun-2025 13:26:34 UTC] PHP Warning:  include(): Failed opening 'db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetchQurbaniOrders.php on line 2
+[14-Jun-2025 13:26:34 UTC] PHP Notice:  Undefined variable: conn in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetchQurbaniOrders.php on line 8
+[14-Jun-2025 13:26:34 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetchQurbaniOrders.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetchQurbaniOrders.php on line 8
+[23-Jun-2025 18:32:58 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetchQurbaniOrders.php on line 2
+[23-Jun-2025 18:32:58 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetchQurbaniOrders.php on line 2
+[23-Jun-2025 18:32:58 UTC] PHP Warning:  include(): Failed opening 'db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetchQurbaniOrders.php on line 2
+[23-Jun-2025 18:32:58 UTC] PHP Notice:  Undefined variable: conn in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetchQurbaniOrders.php on line 8
+[23-Jun-2025 18:32:58 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetchQurbaniOrders.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetchQurbaniOrders.php on line 8
+[23-Jun-2025 18:32:58 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetchQurbaniOrders.php on line 2
+[23-Jun-2025 18:32:58 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetchQurbaniOrders.php on line 2
+[23-Jun-2025 18:32:58 UTC] PHP Warning:  include(): Failed opening 'db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetchQurbaniOrders.php on line 2
+[23-Jun-2025 18:32:58 UTC] PHP Notice:  Undefined variable: conn in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetchQurbaniOrders.php on line 8
+[23-Jun-2025 18:32:58 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetchQurbaniOrders.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetchQurbaniOrders.php on line 8
+[23-Jun-2025 18:33:06 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetchQurbaniOrders.php on line 2
+[23-Jun-2025 18:33:06 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetchQurbaniOrders.php on line 2
+[23-Jun-2025 18:33:06 UTC] PHP Warning:  include(): Failed opening 'db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetchQurbaniOrders.php on line 2
+[23-Jun-2025 18:33:06 UTC] PHP Notice:  Undefined variable: conn in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetchQurbaniOrders.php on line 8
+[23-Jun-2025 18:33:06 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetchQurbaniOrders.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetchQurbaniOrders.php on line 8
+[23-Jun-2025 18:33:06 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetchQurbaniOrders.php on line 2
+[23-Jun-2025 18:33:06 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetchQurbaniOrders.php on line 2
+[23-Jun-2025 18:33:06 UTC] PHP Warning:  include(): Failed opening 'db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetchQurbaniOrders.php on line 2
+[23-Jun-2025 18:33:06 UTC] PHP Notice:  Undefined variable: conn in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetchQurbaniOrders.php on line 8
+[23-Jun-2025 18:33:06 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetchQurbaniOrders.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetchQurbaniOrders.php on line 8
+[23-Jun-2025 18:33:15 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_riders.php on line 2
+[23-Jun-2025 18:33:15 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_riders.php on line 2
+[23-Jun-2025 18:33:15 UTC] PHP Warning:  include(): Failed opening 'db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_riders.php on line 2
+[23-Jun-2025 18:33:15 UTC] PHP Notice:  Undefined variable: conn in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_riders.php on line 5
+[23-Jun-2025 18:33:15 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_riders.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_riders.php on line 5
+[23-Jun-2025 18:33:15 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_riders.php on line 2
+[23-Jun-2025 18:33:15 UTC] PHP Warning:  include(db.php): failed to open stream: No such file or directory in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_riders.php on line 2
+[23-Jun-2025 18:33:15 UTC] PHP Warning:  include(): Failed opening 'db.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_riders.php on line 2
+[23-Jun-2025 18:33:15 UTC] PHP Notice:  Undefined variable: conn in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_riders.php on line 5
+[23-Jun-2025 18:33:15 UTC] PHP Fatal error:  Uncaught Error: Call to a member function query() on null in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_riders.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/webhngff/webhouseinc.co/twf_management/QURBANI_2025/fetch_riders.php on line 5

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expenses</title>
+    <link rel="stylesheet" href="expense.css?v=<?= filemtime('expense.css') ?>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+</head>
+<body>
+    <nav class="sidebar">
+        <button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+        <ul>
+            <li><a href="index.php" class="hovere">Dashboard <span>›</span></a></li>
+            <li><a href="AFruitNewOrder.html" class="hovere">Add New Order (Fruits)<span>›</span></a></li>
+            <li><a href="AManageFruits.html" class="hovere">Orders Management (Fruits)<span>›</span></a></li>
+            <li><a href="AFruitTransactions.html" class="hovere">Transactions <span>›</span></a></li>
+            <li class="active"><a href="Expenses.html">Expenses <span>›</span></a></li>
+            <li><a href="AFruitStats.html" class="hovere">Weekly Stats <span>›</span></a></li>
+        </ul>
+    </nav>
+
+    <div class="header-row">
+        <div class="nav-left">
+            <button class="hamburger"><i class="fa-solid fa-bars"></i></button>
+            <h2>EXPENSES</h2>
+        </div>
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" id="searchBooking" oninput="filterTransactions()" placeholder="Search by Name">
+            </div>
+            <button onclick="exportToCSV()" class="export-btn">Export CSV</button>
+        </div>
+    </div>
+
+    <section class="summary">
+        <div class="summary-card">
+            <img src="imgs/icon6.png" alt="Icon" style="width: 5.5rem; height: 5.5rem;">
+            <div class="card-info">
+                <span class="label">From Bank</span>
+                <span id="bank" class="value">PKR 650,000</span>
+            </div>
+        </div>
+
+        <div class="summary-card">
+            <img src="imgs/icon6.png" alt="Icon" style="width: 5.5rem; height: 5.5rem;">
+            <div class="card-info">
+                <span class="label">From Cash</span>
+                <span id="cash" class="value">PKR 650,000</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="newExpense">
+        <form id="addExpense">
+            <div class="top">
+                <div class="input-section">
+                    <input type="text" id="date" name="date" placeholder="YYYY-MM-DD" autocomplete="off" required>
+                </div>
+    
+                <div class="input-section">
+                    <input type="text" id="from_bank" name="from_bank" placeholder="Bank" autocomplete="off" required>
+                </div>
+    
+                <div class="input-section">
+                    <input type="text" id="from_cash" name="from_cash" placeholder="Cash" autocomplete="off" required>
+                </div>
+    
+                <div class="input-section">
+                    <input type="text" id="total_amount" name="total_amount" placeholder="Total Amount" autocomplete="off" required readonly >
+                </div>
+    
+                <div class="input-section">
+                    <input type="text" id="done_by" name="done_by" placeholder="Done By" autocomplete="off" required>
+                </div>
+
+                <div class="input-section">
+                    <input type="text" id="entered_by" name="entered_by" placeholder="Entered By" autocomplete="off" required>
+                </div>
+            </div>
+
+            <div class="bottom">
+                <div class="input-section">
+                    <input type="text" id="description" name="description" placeholder="Description" autocomplete="off" required>
+                </div>
+            </div>
+
+            <div id="submit">
+                <button type="submit" style="cursor: pointer;">Add New Expense</button>
+            </div>
+        </form>
+    </section>
+
+    <div class="table-wrapper">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>S.NO</th>
+                    <th>Date</th>
+                    <th>Bank</th>
+                    <th>Cash</th>
+                    <th>Total Amount</th>
+                    <th>Done By</th>
+                    <th>Entered By</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody id="ordersContainer"></tbody>
+        </table>
+    </div>
+
+    <script src="Expenses.js?v=<?= filemtime('Expenses.js') ?>"></script>
+</body>
+</html>

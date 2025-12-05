@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Stats</title>
+    <link rel="stylesheet" href="AFruitStats.css?v=<?= filemtime('AFruitStats.css') ?>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+</head>
+<body>
+    <nav class="sidebar">
+        <button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+        <ul>
+            <li><a href="index.php" class="hovere">Dashboard <span>›</span></a></li>
+            <li><a href="AFruitNewOrder.html" class="hovere">Add New Order (Fruits)<span>›</span></a></li>
+            <li><a href="AManageFruits.html" class="hovere">Orders Management (Fruits)<span>›</span></a></li>
+            <li><a href="AFruitTransactions.html" class="hovere">Transactions <span>›</span></a></li>
+            <li><a href="Expenses.html" class="hovere">Expenses <span>›</span></a></li>
+            <li class="active"><a href="AFruitStats.html">Weekly Stats <span>›</span></a></li>
+        </ul>
+    </nav>
+
+    <div class="header-row">
+        <div class="nav-left">
+            <button class="hamburger"><i class="fa-solid fa-bars"></i></button>
+            <h2>WEEKLY STATS</h2>
+        </div>
+        <div class="search-container">
+            <button onclick="exportToCSV()" class="export-btn">Export CSV</button>
+        </div>
+    </div>
+
+    <section class="summary">
+        <div class="summary-card">
+            <img src="imgs/icon6.png" alt="Icon" style="width: 5.5rem; height: 5.5rem;">
+            <div class="card-info">
+                <span class="label">Peti Loss (KG)</span>
+                <span id="loss" class="value">PKR 650,000</span>
+            </div>
+        </div>
+
+        <div class="summary-card">
+            <img src="imgs/icon6.png" alt="Icon" style="width: 5.5rem; height: 5.5rem;">
+            <div class="card-info">
+                <span class="label">Kharab (KG)</span>
+                <span id="kharab" class="value">PKR 650,000</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="newExpense">
+        <form id="addExpense">
+            <div class="top">
+                <div class="input-section">
+                    <input type="text" id="week" name="week" placeholder="WEEK X" autocomplete="off" required>
+                </div>
+    
+                <div class="input-section">
+                    <input type="text" id="units_received" name="units_received" placeholder="Peti Received" autocomplete="off" required>
+                </div>
+    
+                <div class="input-section">
+                    <input type="text" id="kgs_received" name="kgs_received" placeholder="Mangoes Received (KG)" autocomplete="off" required>
+                </div>
+    
+                <div class="input-section">
+                    <input type="text" id="peti_loss" name="peti_loss" placeholder="Peti Loss (KG)" autocomplete="off" required>
+                </div>
+    
+                <div class="input-section">
+                    <input type="text" id="kharab" name="kharab" placeholder="Mangoes Kharab (KG)" autocomplete="off" required>
+                </div>
+
+                <div class="input-section">
+                    <input type="text" id="kgs_delivered" name="kgs_delivered" placeholder="Delivered (KG)" autocomplete="off" required>
+                </div>
+            </div>
+
+            <div class="bottom">
+                <div class="input-section">
+                    <input type="text" id="description" name="description" placeholder="Description" autocomplete="off" required>
+                </div>
+            </div>
+
+            <div id="submit">
+                <button type="submit" style="cursor: pointer;">Add New Stat</button>
+            </div>
+        </form>
+    </section>
+
+    <div class="table-wrapper">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Week</th>
+                    <th>Peti Received</th>
+                    <th>Mangoes Received (KG)</th>
+                    <th>Peti Loss (KG)</th>
+                    <th>Kharab (KG)</th>
+                    <th>Delivered (KG)</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody id="ordersContainer"></tbody>
+        </table>
+    </div>
+
+    <script src="AFruitStats.js?v=<?= filemtime('AFruitStats.js') ?>"></script>
+</body>
+</html>

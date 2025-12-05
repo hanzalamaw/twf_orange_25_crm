@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Management</title>
+    <link rel="stylesheet" href="Order_Management.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+    <link rel="icon" href="imgs/favicon.png">
+</head>
+<body>
+    <nav class="sidebar">
+        <button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+        <ul>
+            <li><a href="index.php" class="hovere">Dashboard <span>›</span></a></li>
+            <li><a href="New_Order.html" class="hovere">Add New Order <span>›</span></a></li>
+            <li class="active"><a href="Order_Management.html">Orders Management <span>›</span></a></li>
+            <li><a href="newOrderFruits.html" class="hovere">Add New Order (Fruits)<span>›</span></a></li>
+            <li><a href="Order_Manage_Fruits.html" class="hovere">Orders Management (Fruits)<span>›</span></a></li>
+            <li><a href="transactions.html" class="hovere">Transactions <span>›</span></a></li>
+            <li><a href="Expenses.html" class="hovere">Expenses <span>›</span></a></li>
+        </ul>
+    </nav>
+
+    <div class="header-row">
+        <div class="nav-left">
+            <button class="hamburger"><i class="fa-solid fa-bars"></i></button>
+            <h2>ORDER MANAGEMENT</h2>
+        </div>
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" id="searchBooking" oninput="filterTransactions()" placeholder="Booking Name">
+            </div>
+            <div class="search-box">
+                <input type="text" id="searchPhone" oninput="filterTransactions()" placeholder="Phone Number">
+            </div>
+            <select id="filterStatus" class="filter-select" onchange="filterTransactions()">
+                <option value="all">All</option>
+                <option value="pending">Pending Payments</option>
+                <option value="received">Received Payments</option>
+            </select>
+            <select id="filterDay" class="filter-select" onchange="filterTransactions()">
+                <option value="all">All Days</option>
+                <option value="First">Day 1</option>
+                <option value="Second">Day 2</option>
+            </select>
+            <div class="cow-range">
+                <label for="cowMin">Cow No:</label>
+                <input type="text" id="cowMin" oninput="filterTransactions()">
+            </div>
+            <button onclick="exportToCSV()" class="export-btn">Export CSV</button>
+        </div>
+    </div>
+
+    <div class="table-wrapper">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Customer ID</th>
+                    <th>Order ID</th>
+                    <th>Cow</th>
+                    <th>Hissa</th>
+                    <th>Slot</th>
+                    <th>Booking Name</th>
+                    <th>Shareholder Name</th>
+                    <th>Phone Number</th>
+                    <th>Alt. Phone</th>
+                    <th>Address</th>
+                    <th>Area</th>
+                    <th>Day</th>
+                    <th>Type</th>
+                    <th>Booking Date</th>
+                    <th>Total Amount</th>
+                    <th>Bank</th>
+                    <th>Cash</th>
+                    <th>Received</th>
+                    <th>Pending</th>
+                    <th>Source</th>
+                    <th>Reference</th>
+                    <th>Description</th>
+                    <th>Payment Status</th>
+                </tr>
+            </thead>
+            <tbody id="ordersContainer"></tbody>
+        </table>
+    </div>
+
+    <script src="Order_Manage.js"></script>
+</body>
+</html>

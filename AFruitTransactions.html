@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transactions</title>
+    <link rel="stylesheet" href="AFruitTransactions.css?v=20241129">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+</head>
+<body>
+
+    <nav class="sidebar">
+        <button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+        <ul>
+            <li><a href="index.php" class="hovere">Dashboard <span>›</span></a></li>
+            <li><a href="AFruitNewOrder.html" class="hovere">Add New Order (Fruits)<span>›</span></a></li>
+            <li><a href="AManageFruits.html" class="hovere">Orders Management (Fruits)<span>›</span></a></li>
+            <li class="active"><a href="AFruitTransactions.html">Transactions <span>›</span></a></li>
+            <li><a href="Expenses.html" class="hovere">Expenses <span>›</span></a></li>
+            <li><a href="AFruitStats.html" class="hovere">Weekly Stats <span>›</span></a></li>
+        </ul>
+    </nav>
+
+    <div class="header-row">
+        <div class="nav-left">
+            <button class="hamburger"><i class="fa-solid fa-bars"></i></button> 
+            <h2>TRANSACTIONS</h2>
+        </div>
+        <div class="search-container">
+            <div class="search-box">
+            <input type="text" id="searchBooking" oninput="filterTransactions()" placeholder="Search by Booking Name">
+            </div>
+            <div class="search-box">
+            <input type="text" id="searchPhone" oninput="filterTransactions()" placeholder="Search by Phone Number">
+            </div>
+            <select id="filterStatus" class="filter-select" onchange="filterTransactions()">
+            <option value="all">All</option>
+            <option value="pending">Pending Payments</option>
+            <option value="received">Received Payments</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="hider">
+            <img id="hideImg" src="imgs/hidden.png" alt="Hidden" onclick="hider()">
+    </div>
+
+    <section class="summary">
+        <div class="summary-card">
+            <img src="imgs/icon4.png" alt="Icon" style="width: 5.5rem; height: 5.5rem;">
+            <div class="card-info">
+                <span class="label">Bank</span>
+                <span id="bank" class="value blur">PKR 650,000</span>
+            </div>
+        </div>
+
+        <div class="summary-card">
+            <img src="imgs/icon4.png" alt="Icon" style="width: 5.5rem; height: 5.5rem;">
+            <div class="card-info">
+                <span class="label">Cash</span>
+                <span id="cash" class="value blur">PKR 650,000</span>
+            </div>
+        </div>
+    </section>
+
+    <table class="table">
+    <thead>
+        <tr>
+        <th>Customer ID</th>
+        <th>Order ID</th>
+        <th>Name</th>
+        <th>Phone Number</th>
+        <th>Quantity</th>
+        <th>Type</th>
+        <th>Weight</th>
+        <th>Pending Amount</th>
+        <th>Payment Status</th>
+        <th>Invoice</th>
+        </tr>
+    </thead>
+    <tbody id="ordersContainer"></tbody>
+    </table>
+
+    <!-- Transaction Modal -->
+    <div class="modal-overlay" id="transactionModal" style="display: none;">
+        <div class="modal-content">
+            <h2 class="modal-title">Update Transaction</h2>
+            
+            <div class="modal-details">
+                <div class="detail-row">
+                    <div class="detail-item">
+                        <span class="detail-label">Customer ID:</span>
+                        <span class="detail-value" id="modal-customer-id"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Order ID:</span>
+                        <span class="detail-value" id="modal-order-id"></span>
+                    </div>
+                </div>
+                
+                <div class="detail-row">
+                    <div class="detail-item">
+                        <span class="detail-label">Name:</span>
+                        <span class="detail-value" id="modal-name"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Contact:</span>
+                        <span class="detail-value" id="modal-contact"></span>
+                    </div>
+                </div>
+                
+                <div class="detail-row">
+                    <div class="detail-item">
+                        <span class="detail-label">Booking Date:</span>
+                        <span class="detail-value" id="modal-booking-date"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Total Price:</span>
+                        <span class="detail-value" id="modal-total-price"></span>
+                    </div>
+                </div>
+                
+                <div class="detail-row">
+                    <div class="detail-item">
+                        <span class="detail-label">Quantity:</span>
+                        <span class="detail-value" id="modal-quantity"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Weight:</span>
+                        <span class="detail-value" id="modal-weight"></span>
+                    </div>
+                </div>
+                
+                <div class="detail-row">
+                    <div class="detail-item">
+                        <span class="detail-label">Current Bank:</span>
+                        <span class="detail-value" id="modal-current-bank"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Current Received:</span>
+                        <span class="detail-value" id="modal-current-received"></span>
+                    </div>
+                </div>
+                
+                <div class="detail-row">
+                    <div class="detail-item">
+                        <span class="detail-label">Current Cash:</span>
+                        <span class="detail-value" id="modal-current-cash"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Current Pending:</span>
+                        <span class="detail-value" id="modal-current-pending"></span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-divider"></div>
+            
+            <div class="modal-inputs">
+                <div class="input-group">
+                    <label for="modal-add-cash">Add Cash:</label>
+                    <input type="number" id="modal-add-cash" placeholder="0" min="0">
+                </div>
+                <div class="input-group">
+                    <label for="modal-add-bank">Add Bank:</label>
+                    <input type="number" id="modal-add-bank" placeholder="0" min="0">
+                </div>
+            </div>
+            
+            <div class="modal-new-totals">
+                <div class="new-total-row">
+                    <div class="new-total-item">
+                        <span class="new-total-label">New Bank Total:</span>
+                        <span class="new-total-value" id="modal-new-bank"></span>
+                    </div>
+                    <div class="new-total-item">
+                        <span class="new-total-label">New Received Total:</span>
+                        <span class="new-total-value" id="modal-new-received"></span>
+                    </div>
+                </div>
+                <div class="new-total-row">
+                    <div class="new-total-item">
+                        <span class="new-total-label">New Cash Total:</span>
+                        <span class="new-total-value" id="modal-new-cash"></span>
+                    </div>
+                    <div class="new-total-item">
+                        <span class="new-total-label">New Pending:</span>
+                        <span class="new-total-value" id="modal-new-pending"></span>
+                    </div>
+                </div>
+            </div>
+            
+            <p class="modal-error" id="modal-error"></p>
+            
+            <div class="modal-buttons">
+                <button class="btn-close" onclick="closeModal()">Close</button>
+                <button class="btn-submit" id="modal-submit-btn" onclick="submitModalTransaction()">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="AFruitTransactions.js?v=20241129"></script>
+</body>
+</html>

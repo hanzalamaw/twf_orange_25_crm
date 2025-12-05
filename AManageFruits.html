@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Management</title>
+    <link rel="stylesheet" href="AManageFruits.css?v=<?= filemtime('AManageFruits.css') ?>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+</head>
+<body>
+    <nav class="sidebar">
+        <button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+        <ul>
+            <li><a href="index.php" class="hovere">Dashboard <span>›</span></a></li>
+            <li><a href="AFruitNewOrder.html" class="hovere">Add New Order (Fruits)<span>›</span></a></li>
+            <li class="active"><a href="AManageFruits.html">Orders Management (Fruits)<span>›</span></a></li>
+            <li><a href="AFruitTransactions.html" class="hovere">Transactions <span>›</span></a></li>
+            <li><a href="Expenses.html" class="hovere">Expenses <span>›</span></a></li>
+            <li><a href="AFruitStats.html" class="hovere">Weekly Stats <span>›</span></a></li>
+        </ul>
+    </nav>
+
+    <div class="header-row">
+        <div class="nav-left">
+            <button class="hamburger"><i class="fa-solid fa-bars"></i></button>
+            <h2>ORDER MANAGEMENT (FRUITS)</h2>
+        </div>
+
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" id="searchBooking" oninput="filterTransactions()" placeholder="Booking Name">
+            </div>
+            <div class="search-box">
+                <input type="text" id="searchPhone" oninput="filterTransactions()" placeholder="Phone Number">
+            </div>
+            <div class="search-box">
+                <input type="text" id="searchWeek" oninput="filterTransactions()" placeholder="WEEK X">
+            </div>
+            <select id="filterStatus" class="filter-select" onchange="filterTransactions()">
+                <option value="all">All</option>
+                <option value="At Our Farm">At Our Farm</option>
+                <option value="Being Packed">Being Packed</option>
+                <option value="Delivered">Delivered</option>
+            </select>
+            <button class="export-btn"><a href="https://webhouseinc.co/twf_management/generate_fruit_challan.php" style="font-size: 14px;color: white; text-decoration: none;">Generate Challans</a></button>
+            <button onclick="exportToCSV()" class="export-btn">Export CSV</button>
+        </div>
+    </div>
+
+    <div class="table-wrapper">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Delivery Status</th>
+                    <th>Customer ID</th>
+                    <th>Order ID</th>
+                    <th>Name</th>
+                    <th>Contact</th>
+                    <th>Alt. Contact</th>
+                    <th>Week</th>
+                    <th>Address</th>
+                    <th>Area</th>
+                    <th>Quantity</th>
+                    <th>Type</th>
+                    <th>Weight</th>
+                    <th>Booking Date</th>
+                    <th>Total Amount</th>
+                    <th>Bank</th>
+                    <th>Cash</th>
+                    <th>Received</th>
+                    <th>Pending</th>
+                    <th>Source</th>
+                    <th>Description</th>
+                    <th>Payment Status</th>
+                </tr>
+            </thead>
+            <tbody id="ordersContainer"></tbody>
+        </table>
+    </div>
+
+    <script src="AManageFruits.js?v=<?= filemtime('AManageFruits.js') ?>"></script>
+</body>
+</html>
