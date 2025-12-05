@@ -51,8 +51,8 @@ function loadStats() {
                 totalKharab += Number(expense.kharab);
             });
 
-            animateCounter(loss, 0, totalLoss, 1000, "", " KG");
-            animateCounter(kharab, 0, totalKharab, 1000, "", " KG");
+            animateCounter(loss, 0, totalLoss, 1000, "", " Pcs");
+            animateCounter(kharab, 0, totalKharab, 1000, "", " Pcs");
         })
         .catch(error => {
             console.error("Error loading expense:", error);
@@ -61,8 +61,8 @@ function loadStats() {
 
 loadStats();
 
-loss.textContent = `${totalLoss} KG`;
-kharab.textContent = `${totalKharab} KG`;
+loss.textContent = `${totalLoss} Pcs`;
+kharab.textContent = `${totalKharab} Pcs`;
 
 //DISPLAY ORDERS
 
@@ -120,15 +120,15 @@ function renderTransactions(data) {
             <input type="text" id="kgs_received-${stat.week}" value="${stat.kgs_received}"/>
           </div>
 
-          <div class="align"><label>Peti Loss (KG): </label>
+          <div class="align"><label>Peti Loss (Pcs): </label>
             <input type="text" id="peti_loss-${stat.week}" value="${stat.peti_loss}" />
           </div>
 
-          <div class="align"><label>Kharab (KG): </label>
+          <div class="align"><label>Kharab (Pcs): </label>
             <input type="text" id="kharab-${stat.week}" value="${stat.kharab}" />
           </div>
 
-          <div class="align"><label>Delivered (KG): </label>
+          <div class="align"><label>Delivered (Pcs): </label>
             <input type="text" id="kgs_delivered-${stat.week}" value="${stat.kgs_delivered}" />
           </div>
 
@@ -222,7 +222,7 @@ function exportToCSV() {
   }
 
   const headers = [
-      "S.NO", "Week", "Units Received", "KGs Received", "Peti Loss (KG)", "Kharab (KG)", "Delivered (KG)", "Description"
+      "S.NO", "Batch", "Units Received", "Pcs Received", "Compensation/Gift (Pcs)", "Rotten (Pcs)", "Delivered (Pcs)", "Description"
   ];
 
   const rows = displayedOrders.map(expense => [

@@ -253,14 +253,14 @@ function renderTransactions(data, fruits) {
     
     row.innerHTML = `
       <td style="text-align: left;">${stat.week}</td>
-      <td style="text-align: left;">${parseFloat(stat.kgs_received).toFixed(1)} Pieces</td>
-      <td style="text-align: left;">${parseFloat(stat.peti_loss).toFixed(1)} Pieces</td>
-      <td style="text-align: left;">${parseFloat(stat.kharab).toFixed(1)} Pieces</td>
-      <td style="text-align: left;">${parseFloat(actualDelivered).toFixed(1)} Pieces</td>
-      <td style="text-align: left;">${parseFloat(unDelivered).toFixed(1)} Pieces</td>
-      <td style="text-align: left;">${parseFloat(ordered).toFixed(1)} Pieces</td>
-      <td style="text-align: left;">${parseFloat(unordered).toFixed(1)} Pieces</td>
-      <td style="text-align: left;">${parseFloat(stat.kgs_delivered).toFixed(1)} Pieces</td>
+      <td style="text-align: left;">${parseFloat(stat.kgs_received).toFixed(0)} Pcs</td>
+      <td style="text-align: left;">${parseFloat(stat.peti_loss).toFixed(0)} Pcs</td>
+      <td style="text-align: left;">${parseFloat(stat.kharab).toFixed(0)} Pcs</td>
+      <td style="text-align: left;">${parseFloat(actualDelivered).toFixed(0)} Pcs</td>
+      <td style="text-align: left;">${parseFloat(unDelivered).toFixed(0)} Pcs</td>
+      <td style="text-align: left;">${parseFloat(ordered).toFixed(0)} Pcs</td>
+      <td style="text-align: left;">${parseFloat(unordered).toFixed(0)} Pcs</td>
+      <td style="text-align: left;">${parseFloat(stat.kgs_delivered).toFixed(0)} Pcs</td>
     `;
     container1.appendChild(row);
   });
@@ -269,14 +269,14 @@ function renderTransactions(data, fruits) {
     
   row.innerHTML = `
     <td style="text-align: left; font-weight: bold; color: #07C339; border-top: 0.1rem solid #07C339; border-bottom: 0.1rem solid #07C339;">TOTAL</td>
-    <td style="text-align: left; font-weight: bold; color: #07C339; border-top: 0.1rem solid #07C339; border-bottom: 0.1rem solid #07C339;">${parseFloat(totalReceived).toFixed(1)} KG</td>
-    <td style="text-align: left; font-weight: bold; color: #07C339; border-top: 0.1rem solid #07C339; border-bottom: 0.1rem solid #07C339;">${parseFloat(totalPetiLoss).toFixed(1)} KG</td>
-    <td style="text-align: left; font-weight: bold; color: #07C339; border-top: 0.1rem solid #07C339; border-bottom: 0.1rem solid #07C339;">${parseFloat(totalKharab).toFixed(1)} KG</td>
-    <td style="text-align: left; font-weight: bold; color: #07C339; border-top: 0.1rem solid #07C339; border-bottom: 0.1rem solid #07C339;">${parseFloat(actualTotalDelivered).toFixed(1)} KG</td>
-    <td style="text-align: left; font-weight: bold; color: #07C339; border-top: 0.1rem solid #07C339; border-bottom: 0.1rem solid #07C339;">${parseFloat(totalunDelivered).toFixed(1)} KG</td>
+    <td style="text-align: left; font-weight: bold; color: #07C339; border-top: 0.1rem solid #07C339; border-bottom: 0.1rem solid #07C339;">${parseFloat(totalReceived).toFixed(0)} Pcs</td>
+    <td style="text-align: left; font-weight: bold; color: #07C339; border-top: 0.1rem solid #07C339; border-bottom: 0.1rem solid #07C339;">${parseFloat(totalPetiLoss).toFixed(0)} Pcs</td>
+    <td style="text-align: left; font-weight: bold; color: #07C339; border-top: 0.1rem solid #07C339; border-bottom: 0.1rem solid #07C339;">${parseFloat(totalKharab).toFixed(0)} Pcs</td>
+    <td style="text-align: left; font-weight: bold; color: #07C339; border-top: 0.1rem solid #07C339; border-bottom: 0.1rem solid #07C339;">${parseFloat(actualTotalDelivered).toFixed(0)} Pcs</td>
+    <td style="text-align: left; font-weight: bold; color: #07C339; border-top: 0.1rem solid #07C339; border-bottom: 0.1rem solid #07C339;">${parseFloat(totalunDelivered).toFixed(0)} Pcs</td>
     <td style="text-align: left; font-weight: bold; color: #07C339; border-top: 0.1rem solid #07C339; border-bottom: 0.1rem solid #07C339;">-</td>
     <td style="text-align: left; font-weight: bold; color: #07C339; border-top: 0.1rem solid #07C339; border-bottom: 0.1rem solid #07C339;">-</td>
-    <td style="text-align: left; font-weight: bold; color: #07C339; border-top: 0.1rem solid #07C339; border-bottom: 0.1rem solid #07C339;">${parseFloat(totalDelivered).toFixed(1)} KG</td>
+    <td style="text-align: left; font-weight: bold; color: #07C339; border-top: 0.1rem solid #07C339; border-bottom: 0.1rem solid #07C339;">${parseFloat(totalDelivered).toFixed(0)} Pcs</td>
   `;
 
   container1.appendChild(row);

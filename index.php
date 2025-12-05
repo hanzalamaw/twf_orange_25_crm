@@ -124,7 +124,7 @@
                         <tr>
                             <th></th>
                             <th>Received</th>
-                            <th>Loss Due to Peti Weight</th>
+                            <th>Compensation/Gift</th>
                             <th>Rotten</th>
                             <th>Delivered</th>
                             <th>Un-Delivered</th>
