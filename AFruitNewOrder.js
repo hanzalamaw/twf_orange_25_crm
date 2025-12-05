@@ -77,7 +77,7 @@ document.getElementById("order_type").addEventListener("input", function () {
         .then(data => {
             const reversedOrderData = [...data].reverse();
 
-            const orangeTypes = ["Orange - Kinnow", "Orange - Mausambi", "Orange - Mausami", "Orange - Red Blood"];
+            const orangeTypes = ["Orange - Kinnow(Standard)", "Orange - Kinnow(Premium)", "Orange - Mausambi", "Orange - Mausami", "Orange - Red Blood"];
             let prefix = "";
             let filterType = "";
 
