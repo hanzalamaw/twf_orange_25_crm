@@ -1,5 +1,4 @@
 <?php
-
 // For Testing 
 /*
 $host = "localhost";

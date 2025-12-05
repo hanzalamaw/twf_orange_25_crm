@@ -253,14 +253,14 @@ function renderTransactions(data, fruits) {
     
     row.innerHTML = `
       <td style="text-align: left;">${stat.week}</td>
-      <td style="text-align: left;">${parseFloat(stat.kgs_received).toFixed(1)} KG</td>
-      <td style="text-align: left;">${parseFloat(stat.peti_loss).toFixed(1)} KG</td>
-      <td style="text-align: left;">${parseFloat(stat.kharab).toFixed(1)} KG</td>
-      <td style="text-align: left;">${parseFloat(actualDelivered).toFixed(1)} KG</td>
-      <td style="text-align: left;">${parseFloat(unDelivered).toFixed(1)} KG</td>
-      <td style="text-align: left;">${parseFloat(ordered).toFixed(1)} KG</td>
-      <td style="text-align: left;">${parseFloat(unordered).toFixed(1)} KG</td>
-      <td style="text-align: left;">${parseFloat(stat.kgs_delivered).toFixed(1)} KG</td>
+      <td style="text-align: left;">${parseFloat(stat.kgs_received).toFixed(1)} Pieces</td>
+      <td style="text-align: left;">${parseFloat(stat.peti_loss).toFixed(1)} Pieces</td>
+      <td style="text-align: left;">${parseFloat(stat.kharab).toFixed(1)} Pieces</td>
+      <td style="text-align: left;">${parseFloat(actualDelivered).toFixed(1)} Pieces</td>
+      <td style="text-align: left;">${parseFloat(unDelivered).toFixed(1)} Pieces</td>
+      <td style="text-align: left;">${parseFloat(ordered).toFixed(1)} Pieces</td>
+      <td style="text-align: left;">${parseFloat(unordered).toFixed(1)} Pieces</td>
+      <td style="text-align: left;">${parseFloat(stat.kgs_delivered).toFixed(1)} Pieces</td>
     `;
     container1.appendChild(row);
   });
