@@ -225,8 +225,10 @@ function renderTransactions(data, fruits) {
   const container1 = document.getElementById('ordersContainer1');
   container1.innerHTML = '';
 
+  const reversedData = data.reverse();
+
   // Render each week's data
-  data.forEach(stat => {
+  reversedData.forEach(stat => {
     totalPetiLoss += parseFloat(stat.peti_loss);
     totalKharab += parseFloat(stat.kharab);
     totalDelivered += parseFloat(stat.kgs_delivered);
