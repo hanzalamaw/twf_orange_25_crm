@@ -204,6 +204,11 @@ let unDelivered = 0;
 let ordered = 0;
 let unordered = 0;
 
+let deliveredPendingAmount = 0;
+let undeliveredPendingAmount = 0;
+let totalDeliveredPendingAmount = 0;
+let totalUndeliveredPendingAmount = 0;
+
 function fetchTransactions() {
   fetch('fetch_stats.php')
     .then(res => res.json())
@@ -236,9 +241,16 @@ function renderTransactions(data, fruits) {
     actualDelivered = 0;
     unDelivered = 0;
     ordered = 0;
+    deliveredPendingAmount = 0;
+    undeliveredPendingAmount = 0;
     fruits.forEach(data => {
       if(data.week == stat.week && data.deliveryStatus == "Delivered"){
         actualDelivered += (parseFloat(data.weight.match(/^\d+(\.\d+)?/)?.[0]) || 0) * data.quantity;
+        deliveredPendingAmount += Number(data.pending_amount) || 0;
+      }
+
+      if(data.week == stat.week && data.deliveryStatus != "Delivered"){
+        undeliveredPendingAmount += Number(data.pending_amount) || 0;
       }
 
       if(data.week == stat.week){
@@ -247,6 +259,8 @@ function renderTransactions(data, fruits) {
     });
 
     actualTotalDelivered += actualDelivered;
+    totalDeliveredPendingAmount += deliveredPendingAmount;
+    totalUndeliveredPendingAmount += undeliveredPendingAmount;
     totalunDelivered = totalReceived - (actualTotalDelivered + totalPetiLoss + totalKharab);
     unordered   = parseFloat(stat.kgs_received) - (ordered + parseFloat(stat.peti_loss) + parseFloat(stat.kharab));
     unDelivered = parseFloat(stat.kgs_received) - (actualDelivered + parseFloat(stat.peti_loss) + parseFloat(stat.kharab));
@@ -258,12 +272,13 @@ function renderTransactions(data, fruits) {
       <td style="text-align: left;">${parseFloat(stat.kgs_received).toFixed(0)} Pcs</td>
       <td style="text-align: left;">${parseFloat(stat.peti_loss).toFixed(0)} Pcs</td>
       <td style="text-align: left;">${parseFloat(stat.kharab).toFixed(0)} Pcs</td>
-      <td style="text-align: left;">${parseFloat(actualDelivered).toFixed(0)} Pcs</td>
-      <td style="text-align: left;">${parseFloat(unDelivered).toFixed(0)} Pcs</td>
+      <td style="text-align: left;">${parseFloat(actualDelivered).toFixed(0)} Pcs (Rs. ${deliveredPendingAmount.toLocaleString()})</td>
+      <td style="text-align: left;">${parseFloat(unDelivered).toFixed(0)} Pcs (Rs. ${undeliveredPendingAmount.toLocaleString()})</td>
       <td style="text-align: left;">${parseFloat(ordered).toFixed(0)} Pcs</td>
       <td style="text-align: left;">${parseFloat(unordered).toFixed(0)} Pcs</td>
-      <td style="text-align: left;">${parseFloat(stat.kgs_delivered).toFixed(0)} Pcs</td>
     `;
+    
+    //<td style="text-align: left;">${parseFloat(stat.kgs_delivered).toFixed(0)} Pcs</td>
     container1.appendChild(row);
   });
 
@@ -274,12 +289,14 @@ function renderTransactions(data, fruits) {
     <td style="text-align: left; font-weight: bold; color: #07C339; border-top: 0.1rem solid #07C339; border-bottom: 0.1rem solid #07C339;">${parseFloat(totalReceived).toFixed(0)} Pcs</td>
     <td style="text-align: left; font-weight: bold; color: #07C339; border-top: 0.1rem solid #07C339; border-bottom: 0.1rem solid #07C339;">${parseFloat(totalPetiLoss).toFixed(0)} Pcs</td>
     <td style="text-align: left; font-weight: bold; color: #07C339; border-top: 0.1rem solid #07C339; border-bottom: 0.1rem solid #07C339;">${parseFloat(totalKharab).toFixed(0)} Pcs</td>
-    <td style="text-align: left; font-weight: bold; color: #07C339; border-top: 0.1rem solid #07C339; border-bottom: 0.1rem solid #07C339;">${parseFloat(actualTotalDelivered).toFixed(0)} Pcs</td>
-    <td style="text-align: left; font-weight: bold; color: #07C339; border-top: 0.1rem solid #07C339; border-bottom: 0.1rem solid #07C339;">${parseFloat(totalunDelivered).toFixed(0)} Pcs</td>
+    <td style="text-align: left; font-weight: bold; color: #07C339; border-top: 0.1rem solid #07C339; border-bottom: 0.1rem solid #07C339;">${parseFloat(actualTotalDelivered).toFixed(0)} Pcs (Rs. ${totalDeliveredPendingAmount.toLocaleString()})</td>
+    <td style="text-align: left; font-weight: bold; color: #07C339; border-top: 0.1rem solid #07C339; border-bottom: 0.1rem solid #07C339;">${parseFloat(totalunDelivered).toFixed(0)} Pcs (Rs. ${totalUndeliveredPendingAmount.toLocaleString()})</td>
     <td style="text-align: left; font-weight: bold; color: #07C339; border-top: 0.1rem solid #07C339; border-bottom: 0.1rem solid #07C339;">-</td>
     <td style="text-align: left; font-weight: bold; color: #07C339; border-top: 0.1rem solid #07C339; border-bottom: 0.1rem solid #07C339;">-</td>
-    <td style="text-align: left; font-weight: bold; color: #07C339; border-top: 0.1rem solid #07C339; border-bottom: 0.1rem solid #07C339;">${parseFloat(totalDelivered).toFixed(0)} Pcs</td>
+    
   `;
+
+  //<td style="text-align: left; font-weight: bold; color: #07C339; border-top: 0.1rem solid #07C339; border-bottom: 0.1rem solid #07C339;">${parseFloat(totalDelivered).toFixed(0)} Pcs</td>
 
   container1.appendChild(row);
 }

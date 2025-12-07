@@ -126,11 +126,10 @@
                             <th>Received</th>
                             <th>Compensation/Gift</th>
                             <th>Rotten</th>
-                            <th>Delivered</th>
-                            <th>Un-Delivered</th>
+                            <th>Delivered (Pending Amount)</th>
+                            <th>Un-Delivered (Pending Amount)</th>
                             <th>Ordered</th>
                             <th>Un-Ordered</th>
-                            <th>Delivered - Stat</th>
                         </tr>
                     </thead>
                     <tbody id="ordersContainer1"></tbody>
