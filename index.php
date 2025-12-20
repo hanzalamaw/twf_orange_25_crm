@@ -167,31 +167,48 @@
 fetch('AFetchFruits.php')
   .then(response => response.json())
   .then(data => {
-    // Step 1: Group orders by date
-    const salesByDate = {};
+    // Step 1: Group orders by date with comprehensive stats
+    const statsByDate = {};
 
     data.forEach(order => {
-      const date = order.booking_date; 
-      if (salesByDate[date]) {
-        salesByDate[date] += 1; // Increment count
-      } else {
-        salesByDate[date] = 1; // Start counting
+      const date = order.booking_date;
+      const totalAmount = parseFloat(order.total_amount) || 0;
+      const receivedAmount = parseFloat(order.received_amount) || 0;
+      const pendingAmount = parseFloat(order.pending_amount) || 0;
+      
+      if (!statsByDate[date]) {
+        statsByDate[date] = {
+          orders: 0,
+          totalSales: 0,
+          receivedPayments: 0,
+          pendingPayments: 0,
+          totalQuantity: 0
+        };
       }
+      
+      statsByDate[date].orders += 1;
+      statsByDate[date].totalSales += totalAmount;
+      statsByDate[date].receivedPayments += receivedAmount;
+      statsByDate[date].pendingPayments += pendingAmount;
+      statsByDate[date].totalQuantity += parseInt(order.quantity) || 0;
     });
 
     // Step 2: Prepare arrays for chart
-    const dates = Object.keys(salesByDate).sort(); // Sort by date
-    const sales = dates.map(date => salesByDate[date]);
+    const dates = Object.keys(statsByDate).sort(); // Sort by date
+    const ordersCount = dates.map(date => statsByDate[date].orders);
 
-    // Step 3: Build the chart
+    // Step 3: Build the chart with custom tooltip
     var options = {
       chart: {
         type: 'line',
-        height: 400
+        height: 400,
+        toolbar: {
+          show: true
+        }
       },
       series: [{
-        name: 'Sales',
-        data: sales
+        name: 'Orders',
+        data: ordersCount
       }],
       xaxis: {
         categories: dates,
@@ -200,8 +217,65 @@ fetch('AFetchFruits.php')
         }
       },
       stroke: {
-        curve: 'smooth'
-      }
+        curve: 'smooth',
+        width: 3
+      },
+      tooltip: {
+        custom: function({series, seriesIndex, dataPointIndex, w}) {
+          const date = dates[dataPointIndex];
+          const stats = statsByDate[date];
+          const avgOrderValue = stats.orders > 0 ? (stats.totalSales / stats.orders) : 0;
+          
+          // Format currency
+          const formatCurrency = (amount) => {
+            return 'Rs ' + amount.toLocaleString('en-PK', { 
+              minimumFractionDigits: 0, 
+              maximumFractionDigits: 0 
+            });
+          };
+          
+          return `
+            <div style="padding: 10px; background: #fff; border-radius: 5px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
+              <div style="font-weight: 600; margin-bottom: 8px; font-size: 14px; color: #333; border-bottom: 1px solid #eee; padding-bottom: 5px;">
+                ${date}
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px; font-size: 13px;">
+                <div style="display: flex; justify-content: space-between; gap: 15px;">
+                  <span style="color: #666;">Orders:</span>
+                  <span style="font-weight: 600; color: #333;">${stats.orders}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; gap: 15px;">
+                  <span style="color: #666;">Total Sales:</span>
+                  <span style="font-weight: 600; color: #07C339;">${formatCurrency(stats.totalSales)}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; gap: 15px;">
+                  <span style="color: #666;">Received Payments:</span>
+                  <span style="font-weight: 600; color: #07C339;">${formatCurrency(stats.receivedPayments)}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; gap: 15px;">
+                  <span style="color: #666;">Pending Payments:</span>
+                  <span style="font-weight: 600; color: #ff6b6b;">${formatCurrency(stats.pendingPayments)}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; gap: 15px;">
+                  <span style="color: #666;">Total Quantity:</span>
+                  <span style="font-weight: 600; color: #333;">${stats.totalQuantity}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; gap: 15px;">
+                  <span style="color: #666;">Avg Order Value:</span>
+                  <span style="font-weight: 600; color: #333;">${formatCurrency(avgOrderValue)}</span>
+                </div>
+              </div>
+            </div>
+          `;
+        }
+      },
+      markers: {
+        size: 4,
+        hover: {
+          size: 6
+        }
+      },
+      colors: ['#07C339']
     };
 
     var chart = new ApexCharts(document.querySelector("#chart"), options);
