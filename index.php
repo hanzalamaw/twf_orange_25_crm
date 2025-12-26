@@ -195,11 +195,30 @@
 
             <div class="prediction-card">
                 <div class="prediction-header">
-                    <h3>Daily Predictions</h3>
-                    <span class="prediction-note">Based on current average sales rate</span>
+                    <h3>Season End Prediction</h3>
+                    <span class="season-range">Dec 5, 2025 - Feb 28, 2026</span>
                 </div>
-                <div class="daily-predictions" id="dailyPredictions">
-                    <!-- Daily predictions will be populated here -->
+                <div class="prediction-content">
+                    <div class="prediction-stat">
+                        <span class="label">Total Sales (Till Now)</span>
+                        <span id="currentSales" class="value">Rs 0</span>
+                    </div>
+                    <div class="prediction-stat">
+                        <span class="label">Days Passed</span>
+                        <span id="daysPassedSales" class="value">0</span>
+                    </div>
+                    <div class="prediction-stat">
+                        <span class="label">Days Remaining</span>
+                        <span id="daysRemainingSales" class="value">0</span>
+                    </div>
+                    <div class="prediction-stat highlight">
+                        <span class="label">Predicted Total Sales (By Feb 28, 2026)</span>
+                        <span id="predictedTotalSales" class="value">Rs 0</span>
+                    </div>
+                    <div class="prediction-stat">
+                        <span class="label">Average Sales Per Day</span>
+                        <span id="avgSalesPerDay" class="value">Rs 0</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -328,6 +347,7 @@ fetch('AFetchFruits.php')
 
     // ========== FUTURE PREDICTIONS ==========
     calculatePredictions(data);
+    calculateSalesPredictions(data);
   })
   .catch(error => console.error('Error fetching orders:', error));
 
@@ -379,44 +399,62 @@ function calculatePredictions(data) {
   document.getElementById('daysRemaining').textContent = daysRemaining;
   document.getElementById('predictedTotalPieces').textContent = predictedTotalPieces.toLocaleString();
   document.getElementById('avgPiecesPerDay').textContent = Math.round(avgPiecesPerDay).toLocaleString();
-
-  // Generate daily predictions for next 7 days
-  generateDailyPredictions(avgPiecesPerDay, daysRemaining);
 }
 
-function generateDailyPredictions(avgPiecesPerDay, daysRemaining) {
-  const container = document.getElementById('dailyPredictions');
-  container.innerHTML = '';
-  
+function calculateSalesPredictions(data) {
+  // Season dates - set to midnight for accurate comparison
+  const seasonStart = new Date('2025-12-05');
+  seasonStart.setHours(0, 0, 0, 0);
+  const seasonEnd = new Date('2026-02-28');
+  seasonEnd.setHours(23, 59, 59, 999);
   const today = new Date();
-  const predictionsToShow = Math.min(7, daysRemaining); // Show next 7 days or remaining days, whichever is less
+  today.setHours(0, 0, 0, 0);
   
-  if (predictionsToShow <= 0) {
-    container.innerHTML = '<div class="no-predictions">Season has ended</div>';
-    return;
-  }
+  // If today is before season start, use season start as reference
+  const referenceDate = today < seasonStart ? seasonStart : today;
+  
+  // Calculate days passed and remaining
+  const daysPassed = Math.max(1, Math.ceil((referenceDate - seasonStart) / (1000 * 60 * 60 * 24)));
+  const daysRemaining = Math.max(0, Math.ceil((seasonEnd - referenceDate) / (1000 * 60 * 60 * 24)));
 
-  for (let i = 1; i <= predictionsToShow; i++) {
-    const futureDate = new Date(today);
-    futureDate.setDate(today.getDate() + i);
+  // Calculate total sales till now
+  let totalSales = 0;
+  
+  data.forEach(order => {
+    // Parse booking date (assuming format YYYY-MM-DD)
+    const orderDate = new Date(order.booking_date);
+    orderDate.setHours(0, 0, 0, 0);
     
-    const dateStr = futureDate.toLocaleDateString('en-US', { 
-      weekday: 'short', 
-      month: 'short', 
-      day: 'numeric' 
+    // Only count orders from season start till today
+    if (orderDate >= seasonStart && orderDate <= today) {
+      const totalAmount = parseFloat(order.total_amount) || 0;
+      totalSales += totalAmount;
+    }
+  });
+
+  // Calculate average sales per day (avoid division by zero)
+  const avgSalesPerDay = daysPassed > 0 ? totalSales / daysPassed : 0;
+
+  // Predict total sales by end of season
+  // Formula: (total sales / days passed) * days remaining + total sales
+  const predictedAdditionalSales = avgSalesPerDay * daysRemaining;
+  const predictedTotalSales = totalSales + predictedAdditionalSales;
+
+  // Format currency helper
+  const formatCurrency = (amount) => {
+    return 'Rs ' + amount.toLocaleString('en-PK', { 
+      minimumFractionDigits: 0, 
+      maximumFractionDigits: 0 
     });
-    
-    const predictedPieces = Math.round(avgPiecesPerDay);
-    
-    const dayCard = document.createElement('div');
-    dayCard.className = 'daily-prediction-item';
-    dayCard.innerHTML = `
-      <div class="prediction-date">${dateStr}</div>
-      <div class="prediction-amount">${predictedPieces.toLocaleString()} pieces</div>
-    `;
-    
-    container.appendChild(dayCard);
-  }
+  };
+
+  // Update UI
+  document.getElementById('currentSales').textContent = formatCurrency(totalSales);
+  document.getElementById('daysPassedSales').textContent = daysPassed;
+  document.getElementById('daysRemainingSales').textContent = daysRemaining;
+  document.getElementById('predictedTotalSales').textContent = formatCurrency(predictedTotalSales);
+  document.getElementById('avgSalesPerDay').textContent = formatCurrency(avgSalesPerDay);
 }
+
 </script>
 </html>
