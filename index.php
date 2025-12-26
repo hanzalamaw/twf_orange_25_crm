@@ -161,12 +161,12 @@
     </section>
 
     <section class="predictions">
-        <h2>FUTURE PREDICTIONS</h2>
+        <h2>SEASON END PREDICTIONS</h2>
         
         <div class="predictions-container">
             <div class="prediction-card">
                 <div class="prediction-header">
-                    <h3>Season End Prediction</h3>
+                    <h3>Pieces Sold Prediction</h3>
                     <span class="season-range">Dec 5, 2025 - Feb 28, 2026</span>
                 </div>
                 <div class="prediction-content">
@@ -195,7 +195,7 @@
 
             <div class="prediction-card">
                 <div class="prediction-header">
-                    <h3>Season End Prediction</h3>
+                    <h3>Sales Prediction</h3>
                     <span class="season-range">Dec 5, 2025 - Feb 28, 2026</span>
                 </div>
                 <div class="prediction-content">
