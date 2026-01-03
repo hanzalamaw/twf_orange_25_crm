@@ -572,41 +572,33 @@ document.addEventListener('DOMContentLoaded', function() {
     };
     
     // Build message
-    const message = `TWF CRM STATS – ${dateStr}
+    const message = `*TWF CRM STATS – ${dateStr}*
 
-💰 FINANCIAL SUMMARY:
 
-Total Orders: ${totalOrders}
+*💰 FINANCIAL SUMMARY:*
 
-Total Sales: ${formatCurrency(totalSales)}
+*Total Orders:* ${totalOrders}
+*Total Sales:* ${formatCurrency(totalSales)}
+*Payment Clearance:* ${paymentClearance} (${clearancePercentage}%)
+*Received Payments:* ${formatCurrency(receivedPayments)}
+*Pending Payments:* ${pendingPayments}
+*Pending Payments Amount:* ${formatCurrency(pendingAmount)}
 
-Payment Clearance: ${paymentClearance} (${clearancePercentage}%)
+*📦 ORANGE STOCK SUMMARY (ALL TIME):*
 
-Received Payments: ${formatCurrency(receivedPayments)}
+*Received:* ${formatPieces(Math.round(totalReceived))} (${formatDozens(totalReceived)})
+*Sold:* ${formatPieces(Math.round(totalSold))} (${formatDozens(totalSold)})
+*Compensation/Gift:* ${formatPieces(Math.round(totalPetiLoss))} (${formatDozens(totalPetiLoss)})
+*Rotten:* ${formatPieces(Math.round(totalKharab))} (${formatDozens(totalKharab)})
+*Un-Ordered:* ${formatPieces(Math.round(totalUnOrdered))} (${formatDozens(totalUnOrdered)})
 
-Pending Payments: ${pendingPayments}
+*🚚 LOGISTICS & SALES SUMMARY:*
 
-Pending Payments Amount: ${formatCurrency(pendingAmount)}
+*Total Orders Today:* ${totalOrdersToday}
+*Total Delivered Today:*
 
-📦 ORANGE STOCK SUMMARY (ALL TIME):
-
-Received: ${formatPieces(Math.round(totalReceived))} (${formatDozens(totalReceived)})
-
-Sold: ${formatPieces(Math.round(totalSold))} (${formatDozens(totalSold)})
-
-Compensation/Gift: ${formatPieces(Math.round(totalPetiLoss))} (${formatDozens(totalPetiLoss)})
-
-Rotten: ${formatPieces(Math.round(totalKharab))} (${formatDozens(totalKharab)})
-
-Un-Ordered: ${formatPieces(Math.round(totalUnOrdered))} (${formatDozens(totalUnOrdered)})
-
-🚚 LOGISTICS & SALES SUMMARY:
-
-Total Orders Today: ${totalOrdersToday}
-
-Total Orders Delivered: ${totalDelivered} (Pending: ${formatCurrency(deliveredPendingAmount)})
-
-Total Un-Delivered: ${totalUnDelivered} (Pending: ${formatCurrency(undeliveredPendingAmount)})`;
+*Total Orders Delivered:* ${totalDelivered} (Pending: ${formatCurrency(deliveredPendingAmount)})
+*Total Un-Delivered:* ${totalUnDelivered} (Pending: ${formatCurrency(undeliveredPendingAmount)})`;
     
     // Copy to clipboard
     await navigator.clipboard.writeText(message);
@@ -684,13 +676,13 @@ Total Un-Delivered: ${totalUnDelivered} (Pending: ${formatCurrency(undeliveredPe
     };
     
     // Build message
-    const message = `${month.toUpperCase()} TARGET REPORT
+    const message = `*${month.toUpperCase()} TARGET REPORT*
 
-Date: ${day}${getOrdinalSuffix(day)} ${month}, ${year}
-Sales: ${formatCurrency(monthlySales)} / ${formatCurrency(monthlyTarget)}
-Days Passed: ${daysPassed}
-Days Left: ${daysLeft}
-Remaining = ${formatCurrency(remaining)}`;
+*Date:* ${day}${getOrdinalSuffix(day)} ${month}, ${year}
+*Sales:* ${formatCurrency(monthlySales)} / ${formatCurrency(monthlyTarget)}
+*Days Passed:* ${daysPassed}
+*Days Left:* ${daysLeft-1}
+*Remaining:* ${formatCurrency(remaining)}`;
     
     // Copy to clipboard
     await navigator.clipboard.writeText(message);
