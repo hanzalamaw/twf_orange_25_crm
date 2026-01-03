@@ -37,7 +37,13 @@
             <h1>ORANGES</h1>
         </div>
 
-        <div class="hider">
+        <div class="hider" style="display: flex; justify-content: flex-end; align-items: center; width: 97%; margin-bottom: 1rem; gap: 1rem;">
+            <button id="copyStatsBtn" style="padding: 8px 16px; background-color: #5a3cf7; color: white; border: none; border-radius: 8px; font-size: 0.9rem; font-weight: 600; cursor: pointer; font-family: 'Poppins', sans-serif; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#4A2CD6'" onmouseout="this.style.backgroundColor='#5a3cf7'">
+                Copy Stats
+            </button>
+            <button id="copyTargetBtn" style="padding: 8px 16px; background-color: #5a3cf7; color: white; border: none; border-radius: 8px; font-size: 0.9rem; font-weight: 600; cursor: pointer; font-family: 'Poppins', sans-serif; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#4A2CD6'" onmouseout="this.style.backgroundColor='#5a3cf7'">
+                Copy Target Report Stats
+            </button>
             <img id="hideImg" src="imgs/hidden.png" alt="Hidden" onclick="hider()">
         </div>
         
@@ -455,6 +461,256 @@ function calculateSalesPredictions(data) {
   document.getElementById('predictedTotalSales').textContent = formatCurrency(predictedTotalSales);
   document.getElementById('avgSalesPerDay').textContent = formatCurrency(avgSalesPerDay);
 }
+
+// Copy Stats Button Functionality
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('copyStatsBtn').addEventListener('click', async function() {
+  try {
+    // Fetch orders data
+    const ordersResponse = await fetch('AFetchFruits.php');
+    const ordersData = await ordersResponse.json();
+    
+    // Fetch weekly stats data
+    const statsResponse = await fetch('fetch_stats.php');
+    const statsData = await statsResponse.json();
+    
+    // Calculate financial summary
+    let totalOrders = ordersData.length;
+    let totalSales = 0;
+    let receivedPayments = 0;
+    let pendingPayments = 0;
+    let pendingAmount = 0;
+    
+    ordersData.forEach(order => {
+      totalSales += parseFloat(order.total_amount) || 0;
+      receivedPayments += parseFloat(order.received_amount) || 0;
+      const pending = parseFloat(order.pending_amount) || 0;
+      if (pending > 0) {
+        pendingPayments++;
+        pendingAmount += pending;
+      }
+    });
+    
+    const paymentClearance = totalOrders - pendingPayments;
+    const clearancePercentage = totalOrders > 0 ? Math.round((paymentClearance / totalOrders) * 100) : 0;
+    
+    // Calculate orange stock summary (all time)
+    let totalReceived = 0;
+    let totalPetiLoss = 0;
+    let totalKharab = 0;
+    let totalSold = 0;
+    let totalOrdered = 0;
+    let totalUnOrdered = 0;
+    
+    statsData.forEach(stat => {
+      totalReceived += parseFloat(stat.kgs_received) || 0;
+      totalPetiLoss += parseFloat(stat.peti_loss) || 0;
+      totalKharab += parseFloat(stat.kharab) || 0;
+    });
+    
+    // Calculate sold (delivered pieces) and total ordered
+    ordersData.forEach(order => {
+      const weightMatch = order.weight ? order.weight.match(/^(\d+)/) : null;
+      const piecesPerUnit = weightMatch ? parseInt(weightMatch[1]) : 0;
+      const quantity = parseInt(order.quantity) || 0;
+      const pieces = piecesPerUnit * quantity;
+      
+      // Total ordered (all orders)
+      totalOrdered += pieces;
+      
+      // Sold (only delivered orders)
+      if (order.deliveryStatus === "Delivered") {
+        totalSold += pieces;
+      }
+    });
+    
+    // Un-Ordered = Received - (Ordered + Compensation/Gift + Rotten)
+    // But since we want "Sold" to match the example, let's use:
+    // Un-Ordered = Received - (Sold + Compensation/Gift + Rotten)
+    totalUnOrdered = totalReceived - (totalSold + totalPetiLoss + totalKharab);
+    
+    // Calculate logistics summary
+    const today = new Date().toISOString().split('T')[0];
+    let totalOrdersToday = 0;
+    let totalDelivered = 0;
+    let totalUnDelivered = 0;
+    let deliveredPendingAmount = 0;
+    let undeliveredPendingAmount = 0;
+    
+    ordersData.forEach(order => {
+      if (order.booking_date === today) {
+        totalOrdersToday++;
+      }
+      if (order.deliveryStatus === "Delivered") {
+        totalDelivered++;
+        deliveredPendingAmount += parseFloat(order.pending_amount) || 0;
+      } else {
+        totalUnDelivered++;
+        undeliveredPendingAmount += parseFloat(order.pending_amount) || 0;
+      }
+    });
+    
+    // Get current date
+    const now = new Date();
+    const day = now.getDate();
+    const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const month = monthNames[now.getMonth()];
+    const year = now.getFullYear();
+    const dateStr = `${day} ${month.toUpperCase()} ${year}`;
+    
+    // Format numbers
+    const formatCurrency = (amount) => {
+      return 'Rs. ' + Math.round(amount).toLocaleString('en-PK');
+    };
+    
+    const formatPieces = (pieces) => {
+      return pieces.toLocaleString('en-PK') + ' Pcs';
+    };
+    
+    const formatDozens = (pieces) => {
+      return (pieces / 12).toFixed(1) + ' Dozens';
+    };
+    
+    // Build message
+    const message = `TWF CRM STATS – ${dateStr}
+
+💰 FINANCIAL SUMMARY:
+
+Total Orders: ${totalOrders}
+
+Total Sales: ${formatCurrency(totalSales)}
+
+Payment Clearance: ${paymentClearance} (${clearancePercentage}%)
+
+Received Payments: ${formatCurrency(receivedPayments)}
+
+Pending Payments: ${pendingPayments}
+
+Pending Payments Amount: ${formatCurrency(pendingAmount)}
+
+📦 ORANGE STOCK SUMMARY (ALL TIME):
+
+Received: ${formatPieces(Math.round(totalReceived))} (${formatDozens(totalReceived)})
+
+Sold: ${formatPieces(Math.round(totalSold))} (${formatDozens(totalSold)})
+
+Compensation/Gift: ${formatPieces(Math.round(totalPetiLoss))} (${formatDozens(totalPetiLoss)})
+
+Rotten: ${formatPieces(Math.round(totalKharab))} (${formatDozens(totalKharab)})
+
+Un-Ordered: ${formatPieces(Math.round(totalUnOrdered))} (${formatDozens(totalUnOrdered)})
+
+🚚 LOGISTICS & SALES SUMMARY:
+
+Total Orders Today: ${totalOrdersToday}
+
+Total Orders Delivered: ${totalDelivered} (Pending: ${formatCurrency(deliveredPendingAmount)})
+
+Total Un-Delivered: ${totalUnDelivered} (Pending: ${formatCurrency(undeliveredPendingAmount)})`;
+    
+    // Copy to clipboard
+    await navigator.clipboard.writeText(message);
+    
+    // Visual feedback
+    const btn = document.getElementById('copyStatsBtn');
+    const originalText = btn.textContent;
+    btn.textContent = 'Copied!';
+    btn.style.backgroundColor = '#4CAF50';
+    setTimeout(() => {
+      btn.textContent = originalText;
+      btn.style.backgroundColor = '#5a3cf7';
+    }, 2000);
+    
+  } catch (error) {
+    console.error('Error copying stats:', error);
+    alert('Error copying stats. Please try again.');
+  }
+  });
+  
+  // Copy Target Report Stats Button Functionality
+  document.getElementById('copyTargetBtn').addEventListener('click', async function() {
+  try {
+    // Fetch orders data
+    const ordersResponse = await fetch('AFetchFruits.php');
+    const ordersData = await ordersResponse.json();
+    
+    // Get current date
+    const now = new Date();
+    const day = now.getDate();
+    const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const month = monthNames[now.getMonth()];
+    const year = now.getFullYear();
+    
+    // Get first day of current month
+    const firstDayOfMonth = new Date(year, now.getMonth(), 1);
+    firstDayOfMonth.setHours(0, 0, 0, 0);
+    
+    // Get last day of current month
+    const lastDayOfMonth = new Date(year, now.getMonth() + 1, 0);
+    lastDayOfMonth.setHours(23, 59, 59, 999);
+    
+    // Calculate days passed and remaining
+    const daysPassed = Math.max(1, Math.ceil((now - firstDayOfMonth) / (1000 * 60 * 60 * 24)));
+    const daysLeft = Math.max(0, Math.ceil((lastDayOfMonth - now) / (1000 * 60 * 60 * 24)));
+    
+    // Calculate sales for current month
+    let monthlySales = 0;
+    ordersData.forEach(order => {
+      const orderDate = new Date(order.booking_date);
+      orderDate.setHours(0, 0, 0, 0);
+      if (orderDate >= firstDayOfMonth && orderDate <= now) {
+        monthlySales += parseFloat(order.total_amount) || 0;
+      }
+    });
+    
+    // Target for the month
+    const monthlyTarget = 1000000;
+    const remaining = monthlyTarget - monthlySales;
+    
+    // Format currency
+    const formatCurrency = (amount) => {
+      return 'Rs. ' + Math.round(amount).toLocaleString('en-PK');
+    };
+    
+    // Get ordinal suffix for day
+    const getOrdinalSuffix = (day) => {
+      if (day > 3 && day < 21) return 'th';
+      switch (day % 10) {
+        case 1: return 'st';
+        case 2: return 'nd';
+        case 3: return 'rd';
+        default: return 'th';
+      }
+    };
+    
+    // Build message
+    const message = `${month.toUpperCase()} TARGET REPORT
+
+Date: ${day}${getOrdinalSuffix(day)} ${month}, ${year}
+Sales: ${formatCurrency(monthlySales)} / ${formatCurrency(monthlyTarget)}
+Days Passed: ${daysPassed}
+Days Left: ${daysLeft}
+Remaining = ${formatCurrency(remaining)}`;
+    
+    // Copy to clipboard
+    await navigator.clipboard.writeText(message);
+    
+    // Visual feedback
+    const btn = document.getElementById('copyTargetBtn');
+    const originalText = btn.textContent;
+    btn.textContent = 'Copied!';
+    btn.style.backgroundColor = '#4CAF50';
+    setTimeout(() => {
+      btn.textContent = originalText;
+      btn.style.backgroundColor = '#5a3cf7';
+    }, 2000);
+    
+  } catch (error) {
+    console.error('Error copying target report:', error);
+    alert('Error copying target report. Please try again.');
+  }
+  });
+});
 
 </script>
 </html>
