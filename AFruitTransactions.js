@@ -127,6 +127,7 @@ function renderTransactions(data) {
       <td>${order.quantity}</td>
       <td>${order.order_type}</td>
       <td>${order.weight}</td>
+      <td>${order.week}</td>
       <td>PKR ${Number(order.pending_amount).toLocaleString()}</td>
       <td>
         <span class="badge ${isPending ? 'pending' : 'received'}">${isPending ? 'Pending' : 'Received'}</span>
