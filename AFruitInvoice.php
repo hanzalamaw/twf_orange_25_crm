@@ -10,7 +10,7 @@ if (!$order_id) {
     die("Order ID is missing");
 }
 
-$stmt = $conn->prepare("SELECT * FROM fruits WHERE order_id = ?");
+$stmt = $conn->prepare("SELECT * FROM fruits_orders WHERE order_id = ?");
 $stmt->bind_param("s", $order_id);
 $stmt->execute();
 $result = $stmt->get_result();
