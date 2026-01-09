@@ -170,6 +170,7 @@
       <option value="">Select Year</option>
       <option value="2024">2024</option>
       <option value="2025">2025</option>
+      <option value="2026">2026</option>
     </select>
 
     <select name="type" id="type" onchange=applyAllFilters()>
@@ -255,27 +256,33 @@ fetch('leaderboard.php')
   });
 
 
-  function renderData(data, revenueKey = 'total_revenue'){
+  function renderData(data, revenueKey = 'total_revenue', selectedYear = ''){
     const tbody = document.querySelector('#leaderboard tbody');
     tbody.innerHTML = ""; // Clear previous rows ✅
 
     data.forEach((customer, index) => {
       const row = document.createElement('tr');
       if(customer.name != "Euronet" && customer.contact != "0"){
-        const displayRevenue = customer[revenueKey] || 0;
+        // If a year is selected, use year-specific data
+        let displayData = customer;
+        if (selectedYear && customer.years && customer.years[selectedYear]) {
+          displayData = customer.years[selectedYear];
+        }
+        
+        const displayRevenue = displayData[revenueKey] || 0;
         row.innerHTML = `
           <td>${index + 1}</td>
           <td>${customer.name}</td>
           <td>${customer.contact}</td>
-          <td>${customer.first_booking_year}</td>
-          <td>${customer.Mango} (${customer.Mango_kg} KG)</td>
-          <td>${customer.Orange} (${customer.Orange_kg} KG)</td>
-          <td>${customer["Hissa - Ijtemai"]}</td>
-          <td>${customer["Hissa - Waqf"]}</td>
-          <td>${customer["Hissa - Ijtemai (Premium)"]}</td>
-          <td>${customer["Goat (Hissa)"]}</td>
-          <td>${customer.Goat}</td>
-          <td>${customer.Cow}</td>
+          <td>${selectedYear || customer.first_booking_year}</td>
+          <td>${displayData.Mango || 0} (${displayData.Mango_kg || 0} KG)</td>
+          <td>${displayData.Orange || 0} (${displayData.Orange_kg || 0} Pcs)</td>
+          <td>${displayData["Hissa - Ijtemai"] || 0}</td>
+          <td>${displayData["Hissa - Waqf"] || 0}</td>
+          <td>${displayData["Hissa - Ijtemai (Premium)"] || 0}</td>
+          <td>${displayData["Goat (Hissa)"] || 0}</td>
+          <td>${displayData.Goat || 0}</td>
+          <td>${displayData.Cow || 0}</td>
           <td>Rs. ${displayRevenue.toLocaleString()}</td>
         `;
         tbody.appendChild(row);
@@ -298,42 +305,72 @@ fetch('leaderboard.php')
       );
     }
 
+    // Filter customers that have orders in the selected year
     if (year !== "") {
       filteredData = filteredData.filter(row =>
-        row.first_booking_year.toString().includes(year)
+        row.years && row.years[year] && row.years[year].total_revenue > 0
       );
     }
 
     if (type !== "") {
       switch (type) {
         case "Mango":
-          filteredData = filteredData.filter(row => row.Mango !== 0);
+          if (year !== "") {
+            filteredData = filteredData.filter(row => row.years && row.years[year] && row.years[year].Mango > 0);
+          } else {
+            filteredData = filteredData.filter(row => row.Mango !== 0);
+          }
           revenueKey = 'Mango_revenue';
           break;
 
         case "Orange":
-          filteredData = filteredData.filter(row => row.Orange !== 0);
+          if (year !== "") {
+            filteredData = filteredData.filter(row => row.years && row.years[year] && row.years[year].Orange > 0);
+          } else {
+            filteredData = filteredData.filter(row => row.Orange !== 0);
+          }
           revenueKey = 'Orange_revenue';
           break;
 
         case "Qurbani":
-          filteredData = filteredData.filter(row =>
-            row["Hissa - Ijtemai"] !== 0 ||
-            row["Hissa - Waqf"] !== 0 ||
-            row["Hissa - Ijtemai (Premium)"] !== 0 ||
-            row["Goat (Hissa)"] !== 0 ||
-            row.Goat !== 0 ||
-            row.Cow !== 0
-          );
+          if (year !== "") {
+            filteredData = filteredData.filter(row => 
+              row.years && row.years[year] && (
+                row.years[year]["Hissa - Ijtemai"] > 0 ||
+                row.years[year]["Hissa - Waqf"] > 0 ||
+                row.years[year]["Hissa - Ijtemai (Premium)"] > 0 ||
+                row.years[year]["Goat (Hissa)"] > 0 ||
+                row.years[year].Goat > 0 ||
+                row.years[year].Cow > 0
+              )
+            );
+          } else {
+            filteredData = filteredData.filter(row =>
+              row["Hissa - Ijtemai"] !== 0 ||
+              row["Hissa - Waqf"] !== 0 ||
+              row["Hissa - Ijtemai (Premium)"] !== 0 ||
+              row["Goat (Hissa)"] !== 0 ||
+              row.Goat !== 0 ||
+              row.Cow !== 0
+            );
+          }
           revenueKey = 'Qurbani_revenue';
           break;
       }
     }
 
-    // Sort by the appropriate revenue key
-    filteredData.sort((a, b) => (b[revenueKey] || 0) - (a[revenueKey] || 0));
+    // Sort by the appropriate revenue key (use year-specific data if year is selected)
+    if (year !== "") {
+      filteredData.sort((a, b) => {
+        const aRevenue = (a.years && a.years[year]) ? (a.years[year][revenueKey] || 0) : 0;
+        const bRevenue = (b.years && b.years[year]) ? (b.years[year][revenueKey] || 0) : 0;
+        return bRevenue - aRevenue;
+      });
+    } else {
+      filteredData.sort((a, b) => (b[revenueKey] || 0) - (a[revenueKey] || 0));
+    }
 
-    renderData(filteredData, revenueKey);
+    renderData(filteredData, revenueKey, year);
   }
 </script>
 
