@@ -16,16 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //GENERATE CUSTOMER ID (BASED ON CONTACT NUMBER)
 document.getElementById("contact").addEventListener("input", function () {
-    const contactInput = this.value.trim();
+    const contactInput = this.value;
 
-    // VALIDATE CONTACT NUMBER FORMAT: XXXX-XXXXXXX (4 digits, dash, 7 digits)
-    // Only fetch if contact number is complete to avoid lag
-    const contactPattern = /^\d{4}-\d{7}$/;
-    if (!contactPattern.test(contactInput)) {
-        return; // Don't fetch until contact is complete
-    }
-
-    fetch("AFetchFruits.php")
+    fetch("AFetchHalwa.php")
         .then(response => response.json())
         .then(data => {
             let matched = false;
@@ -38,10 +31,9 @@ document.getElementById("contact").addEventListener("input", function () {
 
                 if (contactInput === order.contact) {
                     document.getElementById("customer_id").value = order.customer_id;
-                    document.getElementById("name").textContent = order.name;
-                    document.getElementById("alt_contact").textContent = order.alt_contact;
-                    document.getElementById("address").textContent = order.address;
-                    document.getElementById("area").textContent = order.area;
+                    document.getElementById("name").value = order.name;
+                    document.getElementById("address").value = order.address;
+                    document.getElementById("area").value = order.area;
                     matched = true;
                     break;
                 }
@@ -55,7 +47,7 @@ document.getElementById("contact").addEventListener("input", function () {
                 while (!isUnique) {
                     idNum += 1;
                     const formattedNum = idNum.toString().padStart(4, '0');
-                    newID = `#TWF-${formattedNum}-O-2025`;
+                    newID = `#TWF-${formattedNum}-H-2025`;
 
                     // CHECK UNIQUENESS
                     isUnique = !reversedData.some(order => order.customer_id === newID);
@@ -63,10 +55,6 @@ document.getElementById("contact").addEventListener("input", function () {
 
                 // SET GENERATED UNIQUE ID AND RETAIN INPUT VALUES
                 document.getElementById("customer_id").value = newID;
-                document.getElementById("name").value = document.getElementById("name").value;
-                document.getElementById("alt_contact").value = document.getElementById("alt_contact").value;
-                document.getElementById("address").value = document.getElementById("address").value;
-                document.getElementById("area").value = document.getElementById("area").value;
                 console.log("Generated Unique ID:", newID);
             }
         })
@@ -78,42 +66,27 @@ document.getElementById("contact").addEventListener("input", function () {
 //GENERATE ORDER ID (BASED ON ORDER TYPE)
 document.getElementById("order_type").addEventListener("input", function () {
     const orderTypeInput = this.value.trim();
-    const contactInput = document.getElementById("contact").value.trim();
 
-    // VALIDATE CONTACT NUMBER FORMAT: XXXX-XXXXXXX (4 digits, dash, 7 digits)
-    const contactPattern = /^\d{4}-\d{7}$/;
-    if (!contactPattern.test(contactInput)) {
-        console.log("⚠️ Please enter a complete contact number in format: XXXX-XXXXXXX");
-        return;
-    }
-
-    fetch("AFetchFruits.php")
+    fetch("AFetchHalwa.php")
         .then(response => response.json())
         .then(data => {
             const reversedOrderData = [...data].reverse();
 
-            const orangeTypes = ["Orange - Kinnow(Standard)", "Orange - Kinnow(Premium)", "Orange - Mausambi", "Orange - Mausami", "Orange - Red Blood"];
-            let prefix = "";
-            let filterType = "";
-
-            if (orangeTypes.includes(orderTypeInput)) {
-                prefix = "#O-";
-                filterType = "orange";
-            } else {
-                console.warn("Unknown order type:", orderTypeInput);
-                return;
-            }
+            // Halwa order types - update as needed
+            const halwaTypes = [orderTypeInput]; // Use the current order type
+            let prefix = "#H-";
+            let filterType = "halwa";
 
             // FIND LAST ORDER ID IN GROUP
             let lastOrderID = reversedOrderData.find(order =>
-                orangeTypes.includes(order.order_type)
+                order.order_id && order.order_id.startsWith("#H-")
             )?.order_id || null;
 
             let orderIdNum = 0;
 
             if (lastOrderID) {
-                // EXPECTED FORMAT: #O-0001-2025
-                const match = lastOrderID.match(/#O-(\d{4})-2025/);
+                // EXPECTED FORMAT: #H-0001-2025
+                const match = lastOrderID.match(/#H-(\d{4})-2025/);
                 if (match) {
                     orderIdNum = parseInt(match[1], 10);
                 }
@@ -142,20 +115,17 @@ document.getElementById("order_type").addEventListener("input", function () {
 
 //PRICES (BASED ON ORDER TYPE)
 
-document.getElementById("order_type").addEventListener("input", function () {
+document.getElementById("order_type").addEventListener("change", function () {
     calculateTotal();
 
-    document.getElementById("bank").value = 0;
-    document.getElementById("cash").value = 0;
-    document.getElementById("received_amount").value = Number(document.getElementById("bank").value) + Number(document.getElementById("cash").value);
-    document.getElementById("pending_amount").value = Number(document.getElementById("total_amount").value) - Number(document.getElementById("received_amount").value);
-
-    // Set current date as booking date
-    const currentDate = new Date();
-    const year = currentDate.getFullYear();
-    const month = String(currentDate.getMonth() + 1).padStart(2, '0');
-    const day = String(currentDate.getDate()).padStart(2, '0');
-    document.getElementById("booking_date").value = `${year}-${month}-${day}`;
+    // Set current date as booking date if not already set
+    if (!document.getElementById("booking_date").value) {
+        const currentDate = new Date();
+        const year = currentDate.getFullYear();
+        const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+        const day = String(currentDate.getDate()).padStart(2, '0');
+        document.getElementById("booking_date").value = `${year}-${month}-${day}`;
+    }
 });
 
 document.getElementById("weight").addEventListener("input", function () {
@@ -167,39 +137,38 @@ document.getElementById("quantity").addEventListener("input", function () {
 });
 
 //Function For Setting Total Amount
+// Note: For Halwa, pricing can be set manually or configured here based on order type and weight
 function calculateTotal(){
     const orderType = document.getElementById("order_type").value;
     const orderWeight = document.getElementById("weight").value;
 
+    // If order type or weight is not selected, don't auto-calculate
+    if (!orderType || !orderWeight) {
+        return;
+    }
+
+    // Halwa pricing logic - update as needed based on your pricing structure
+    // For now, let users manually enter the total amount
+    // You can add pricing logic here if you have fixed prices for Halwa types
+    
     switch(orderType){
-        case "Mango - Chaunsa": 
-            switch(orderWeight){
-                case "5KG - Premium"    : setTotal(2280); break;
-                case "10KG - Premium"   : setTotal(3550); break;
-                case "5KG - Wooden Box" : setTotal(0); break;
-                case "10KG - Wooden Box": setTotal(0); break;
-            }
+        case "Halwa - Standard": 
+            // Add pricing logic here if needed
             break;
 
-        case "Mango - Sindhri": 
-            switch(orderWeight){
-                case "5KG - Premium"    : setTotal(2230); break;
-                case "10KG - Premium"   : setTotal(3450); break;
-                case "5KG - Wooden Box" : setTotal(1650); break;
-                case "10KG - Wooden Box": setTotal(2800); break;
-            }
+        case "Halwa - Premium": 
+            // Add pricing logic here if needed
             break;
 
-        case "Mango - Anwar Ratol": 
-            switch(orderWeight){
-                case "5KG - Premium"    : setTotal(2650); break;
-                case "10KG - Premium"   : setTotal(3980); break;
-                case "5KG - Wooden Box" : setTotal(0); break;
-                case "10KG - Wooden Box": setTotal(0); break;
-            }
+        case "Halwa - Special": 
+            // Add pricing logic here if needed
             break;
 
-        default: setTotal(0); break;
+        case "Halwa - Gift Box": 
+            // Add pricing logic here if needed
+            break;
+
+        default: break;
     }
 }
 
@@ -236,7 +205,7 @@ document.getElementById("orderForm").addEventListener("submit", function(event) 
     
     let formData = new FormData(this);
 
-    fetch("AAddFruits.php", {
+    fetch("AAddHalwa.php", {
         method: "POST",
         body: formData
     })
@@ -248,7 +217,7 @@ document.getElementById("orderForm").addEventListener("submit", function(event) 
             this.reset(); 
         } else {
             document.getElementById("order_id").value = "";
-            document.getElementById("order_type").value = "None";
+            document.getElementById("order_type").selectedIndex = 0;
         }
     });
 });

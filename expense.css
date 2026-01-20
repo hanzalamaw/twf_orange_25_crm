@@ -49,6 +49,9 @@ body {
 
 .sidebar ul {
     list-style: none;
+    overflow-y: auto;
+    max-height: calc(100vh - 90px);
+    padding-right: 5px;
 }
 
 .sidebar ul li {

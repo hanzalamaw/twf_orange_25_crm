@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TWF - Dashboard</title>
+    <title>TWF - Dashboard (Halwa)</title>
     <link rel="stylesheet" href="index.css?v=<?= filemtime('index.css') ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
     <link rel="icon" href="imgs/favicon.png">
@@ -13,14 +13,14 @@
         <button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
         <ul>
             <li style="padding: 8px 15px; color: #888; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; margin-top: 10px; margin-bottom: 5px;">Orange</li>
-            <li class="active"><a href="index.php">Dashboard <span>›</span></a></li>
+            <li><a href="index.php" class="hovere">Dashboard <span>›</span></a></li>
             <li><a href="AFruitNewOrder.html" class="hovere">Add New Order <span>›</span></a></li>
             <li><a href="AManageFruits.html" class="hovere">Orders Management <span>›</span></a></li>
             <li><a href="AFruitTransactions.html" class="hovere">Transactions <span>›</span></a></li>
             <li><a href="Expenses.html" class="hovere">Expenses <span>›</span></a></li>
             <li><a href="AFruitStats.html" class="hovere">Weekly Stats <span>›</span></a></li>
             <li style="padding: 8px 15px; color: #888; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; margin-top: 20px; margin-bottom: 5px;">Halwa</li>
-            <li><a href="index_halwa.php" class="hovere">Dashboard <span>›</span></a></li>
+            <li class="active"><a href="index_halwa.php">Dashboard <span>›</span></a></li>
             <li><a href="AHalwaNewOrder.html" class="hovere">Add New Order <span>›</span></a></li>
             <li><a href="AManageHalwa.html" class="hovere">Orders Management <span>›</span></a></li>
             <li><a href="AHalwaTransactions.html" class="hovere">Transactions <span>›</span></a></li>
@@ -42,7 +42,7 @@
         </header>
 
         <div class="seperator">
-            <h1>ORANGES</h1>
+            <h1>HALWA</h1>
         </div>
 
         <div class="hider" style="display: flex; justify-content: flex-end; align-items: center; width: 97%; margin-bottom: 1rem; gap: 1rem;">
@@ -130,7 +130,7 @@
         <div class="align">
             <div class="daySection">
                 <div class="head">
-                    <h1>Oranges</h1>
+                    <h1>Halwa</h1>
                 </div>
 
                 <table class="table">
@@ -181,7 +181,7 @@
             <div class="prediction-card">
                 <div class="prediction-header">
                     <h3>Pieces Sold Prediction</h3>
-                    <span class="season-range">Dec 5, 2025 - Feb 28, 2026</span>
+                    <span class="season-range">Jan 10, 2026 - Feb 28, 2026</span>
                 </div>
                 <div class="prediction-content">
                     <div class="prediction-stat">
@@ -210,7 +210,7 @@
             <div class="prediction-card">
                 <div class="prediction-header">
                     <h3>Sales Prediction</h3>
-                    <span class="season-range">Dec 5, 2025 - Feb 28, 2026</span>
+                    <span class="season-range">Jan 10, 2026 - Feb 28, 2026</span>
                 </div>
                 <div class="prediction-content">
                     <div class="prediction-stat">
@@ -238,11 +238,11 @@
         </div>
     </section>
         
-    <script src="index.js?v=<?= filemtime('index.js') ?>"></script>
+    <script src="index_halwa.js?v=<?= filemtime('index_halwa.js') ?>"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 </body>
 <script>
-fetch('AFetchFruits.php')
+fetch('AFetchHalwa.php')
   .then(response => response.json())
   .then(data => {
     // Step 1: Group orders by date with comprehensive stats
@@ -367,7 +367,7 @@ fetch('AFetchFruits.php')
 
 function calculatePredictions(data) {
   // Season dates - set to midnight for accurate comparison
-  const seasonStart = new Date('2025-12-05');
+  const seasonStart = new Date('2026-01-10');
   seasonStart.setHours(0, 0, 0, 0);
   const seasonEnd = new Date('2026-02-28');
   seasonEnd.setHours(23, 59, 59, 999);
@@ -417,7 +417,7 @@ function calculatePredictions(data) {
 
 function calculateSalesPredictions(data) {
   // Season dates - set to midnight for accurate comparison
-  const seasonStart = new Date('2025-12-05');
+  const seasonStart = new Date('2026-01-10');
   seasonStart.setHours(0, 0, 0, 0);
   const seasonEnd = new Date('2026-02-28');
   seasonEnd.setHours(23, 59, 59, 999);
@@ -475,11 +475,11 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('copyStatsBtn').addEventListener('click', async function() {
   try {
     // Fetch orders data
-    const ordersResponse = await fetch('AFetchFruits.php');
+    const ordersResponse = await fetch('AFetchHalwa.php');
     const ordersData = await ordersResponse.json();
     
     // Fetch weekly stats data
-    const statsResponse = await fetch('fetch_stats.php');
+    const statsResponse = await fetch('fetch_halwa_stats.php');
     const statsData = await statsResponse.json();
     
     // Calculate financial summary
@@ -502,18 +502,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const paymentClearance = totalOrders - pendingPayments;
     const clearancePercentage = totalOrders > 0 ? Math.round((paymentClearance / totalOrders) * 100) : 0;
     
-    // Calculate orange stock summary (all time)
+    // Calculate halwa stock summary (all time)
     let totalReceived = 0;
-    let totalPetiLoss = 0;
-    let totalKharab = 0;
+    let totalWeightLoss = 0;
+    let totalRotten = 0;
     let totalSold = 0;
     let totalOrdered = 0;
     let totalUnOrdered = 0;
     
     statsData.forEach(stat => {
       totalReceived += parseFloat(stat.kgs_received) || 0;
-      totalPetiLoss += parseFloat(stat.peti_loss) || 0;
-      totalKharab += parseFloat(stat.kharab) || 0;
+      totalWeightLoss += parseFloat(stat.weight_loss) || 0;
+      totalRotten += parseFloat(stat.rotten) || 0;
     });
     
     // Calculate sold (delivered pieces) and total ordered
@@ -532,10 +532,10 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
     
-    // Un-Ordered = Received - (Ordered + Compensation/Gift + Rotten)
+    // Un-Ordered = Received - (Ordered + Weight Loss + Rotten)
     // But since we want "Sold" to match the example, let's use:
-    // Un-Ordered = Received - (Sold + Compensation/Gift + Rotten)
-    totalUnOrdered = totalReceived - (totalSold + totalPetiLoss + totalKharab);
+    // Un-Ordered = Received - (Sold + Weight Loss + Rotten)
+    totalUnOrdered = totalReceived - (totalSold + totalWeightLoss + totalRotten);
     
     // Calculate logistics summary
     const today = new Date().toISOString().split('T')[0];
@@ -592,12 +592,12 @@ document.addEventListener('DOMContentLoaded', function() {
 *Pending Payments:* ${pendingPayments}
 *Pending Payments Amount:* ${formatCurrency(pendingAmount)}
 
-*📦 ORANGE STOCK SUMMARY (ALL TIME):*
+*📦 HALWA STOCK SUMMARY (ALL TIME):*
 
 *Received:* ${formatPieces(Math.round(totalReceived))} (${formatDozens(totalReceived)})
 *Sold:* ${formatPieces(Math.round(totalSold))} (${formatDozens(totalSold)})
-*Compensation/Gift:* ${formatPieces(Math.round(totalPetiLoss))} (${formatDozens(totalPetiLoss)})
-*Rotten:* ${formatPieces(Math.round(totalKharab))} (${formatDozens(totalKharab)})
+*Weight Loss:* ${formatPieces(Math.round(totalWeightLoss))} (${formatDozens(totalWeightLoss)})
+*Rotten:* ${formatPieces(Math.round(totalRotten))} (${formatDozens(totalRotten)})
 *Un-Ordered:* ${formatPieces(Math.round(totalUnOrdered))} (${formatDozens(totalUnOrdered)})
 
 *🚚 LOGISTICS & SALES SUMMARY:*
@@ -631,7 +631,7 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('copyTargetBtn').addEventListener('click', async function() {
   try {
     // Fetch orders data
-    const ordersResponse = await fetch('AFetchFruits.php');
+    const ordersResponse = await fetch('AFetchHalwa.php');
     const ordersData = await ordersResponse.json();
     
     // Get current date
