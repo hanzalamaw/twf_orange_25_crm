@@ -634,31 +634,39 @@ document.addEventListener('DOMContentLoaded', function() {
     const ordersResponse = await fetch('AFetchFruits.php');
     const ordersData = await ordersResponse.json();
     
-    // Get current date
-    const now = new Date();
-    const day = now.getDate();
+    // Set date range: February 1, 2026 to February 28, 2026
     const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    const month = monthNames[now.getMonth()];
-    const year = now.getFullYear();
+    const month = "February";
+    const year = 2026;
     
-    // Get first day of current month
-    const firstDayOfMonth = new Date(year, now.getMonth(), 1);
+    // Get current date for the report date field
+    const now = new Date();
+    const currentDay = now.getDate();
+    const currentMonth = monthNames[now.getMonth()];
+    const currentYear = now.getFullYear();
+    
+    // Get first day of February 2026
+    const firstDayOfMonth = new Date(2026, 1, 1); // Month is 0-indexed, so 1 = February
     firstDayOfMonth.setHours(0, 0, 0, 0);
     
-    // Get last day of current month
-    const lastDayOfMonth = new Date(year, now.getMonth() + 1, 0);
+    // Get last day of February 2026
+    const lastDayOfMonth = new Date(2026, 1, 28); // February 28, 2026
     lastDayOfMonth.setHours(23, 59, 59, 999);
     
-    // Calculate days passed and remaining
-    const daysPassed = Math.max(1, Math.ceil((now - firstDayOfMonth) / (1000 * 60 * 60 * 24)));
-    const daysLeft = Math.max(0, Math.ceil((lastDayOfMonth - now) / (1000 * 60 * 60 * 24)));
+    // Calculate days passed since February 1, 2026
+    const nowForCalc = new Date();
+    nowForCalc.setHours(0, 0, 0, 0);
+    const daysPassed = Math.max(1, Math.ceil((nowForCalc - firstDayOfMonth) / (1000 * 60 * 60 * 24)));
     
-    // Calculate sales for current month
+    // Calculate days left until February 28, 2026
+    const daysLeft = Math.max(0, Math.ceil((lastDayOfMonth - nowForCalc) / (1000 * 60 * 60 * 24)));
+    
+    // Calculate sales for February 1-28, 2026
     let monthlySales = 0;
     ordersData.forEach(order => {
       const orderDate = new Date(order.booking_date);
       orderDate.setHours(0, 0, 0, 0);
-      if (orderDate >= firstDayOfMonth && orderDate <= now) {
+      if (orderDate >= firstDayOfMonth && orderDate <= lastDayOfMonth) {
         monthlySales += parseFloat(order.total_amount) || 0;
       }
     });
@@ -686,10 +694,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Build message
     const message = `*${month.toUpperCase()} TARGET REPORT*
 
-*Date:* ${day}${getOrdinalSuffix(day)} ${month}, ${year}
+*Date:* ${currentDay}${getOrdinalSuffix(currentDay)} ${currentMonth}, ${currentYear}
 *Sales:* ${formatCurrency(monthlySales)} / ${formatCurrency(monthlyTarget)}
 *Days Passed:* ${daysPassed}
-*Days Left:* ${daysLeft-1}
+*Days Left:* ${daysLeft}
 *Remaining:* ${formatCurrency(remaining)}`;
     
     // Copy to clipboard
