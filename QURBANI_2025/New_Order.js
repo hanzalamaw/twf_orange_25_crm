@@ -31,23 +31,24 @@ document.getElementById("contact_no").addEventListener("input", function () {
             reversedData.forEach(order => {
                 lastCustomerID = order.customer_id;
 
-                if (contactInput == order.contact_no) {
+                if (contactInput !== "" && contactInput == order.contact_no) {
                     document.getElementById("customer_id").value = order.customer_id;
                     document.getElementById("booking_name").value = order.booking_name;
                     matched = true;
                 }
-                if(!matched) {
-                    let idNum = parseInt(lastCustomerID.substring(5, 9), 10);
-                    idNum += 1;
-
-                    const formattedNum = idNum.toString().padStart(4, '0');
-
-                    const newID = `#TWF-${formattedNum}`;
-                    document.getElementById("customer_id").value = newID;
-                    document.getElementById("booking_name").value = document.getElementById("booking_name").value;
-                    console.log(newID);
-                }
             });
+
+            if(!matched) {
+                let idNum = parseInt(lastCustomerID.substring(5, 9), 10);
+                idNum += 1;
+
+                const formattedNum = idNum.toString().padStart(4, '0');
+
+                const newID = `#TWF-${formattedNum}`;
+                document.getElementById("customer_id").value = newID;
+                document.getElementById("booking_name").value = document.getElementById("booking_name").value;
+                console.log(newID);
+            }
         })
         .catch(error => {
             console.error("Error loading orders:", error);

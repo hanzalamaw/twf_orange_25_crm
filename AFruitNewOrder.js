@@ -18,13 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
 document.getElementById("contact").addEventListener("input", function () {
     const contactInput = this.value.trim();
 
-    // VALIDATE CONTACT NUMBER FORMAT: XXXX-XXXXXXX (4 digits, dash, 7 digits)
-    // Only fetch if contact number is complete to avoid lag
-    const contactPattern = /^\d{4}-\d{7}$/;
-    if (!contactPattern.test(contactInput)) {
-        return; // Don't fetch until contact is complete
-    }
-
     fetch("AFetchFruits.php")
         .then(response => response.json())
         .then(data => {
@@ -36,7 +29,7 @@ document.getElementById("contact").addEventListener("input", function () {
             for (let order of reversedData) {
                 lastCustomerID = order.customer_id;
 
-                if (contactInput === order.contact) {
+                if (contactInput !== "" && contactInput === order.contact) {
                     document.getElementById("customer_id").value = order.customer_id;
                     document.getElementById("name").textContent = order.name;
                     document.getElementById("alt_contact").textContent = order.alt_contact;
@@ -78,14 +71,6 @@ document.getElementById("contact").addEventListener("input", function () {
 //GENERATE ORDER ID (BASED ON ORDER TYPE)
 document.getElementById("order_type").addEventListener("input", function () {
     const orderTypeInput = this.value.trim();
-    const contactInput = document.getElementById("contact").value.trim();
-
-    // VALIDATE CONTACT NUMBER FORMAT: XXXX-XXXXXXX (4 digits, dash, 7 digits)
-    const contactPattern = /^\d{4}-\d{7}$/;
-    if (!contactPattern.test(contactInput)) {
-        console.log("⚠️ Please enter a complete contact number in format: XXXX-XXXXXXX");
-        return;
-    }
 
     fetch("AFetchFruits.php")
         .then(response => response.json())
